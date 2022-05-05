@@ -1,0 +1,415 @@
+
+header{
+    position: fixed;
+    top: 0px;
+    right: 0px;
+    left: 0px;
+    height: 110px;z-index: 999;
+}
+
+
+
+.banner{
+    width: 100%;
+    margin: 0 auto;
+    margin-top: 140px;
+}
+.banner img{
+    max-width: 100%;
+}
+
+.producttheohang .list-product{
+    display: flex;
+  -webkit-box-flex-wrap: wrap;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-column-gap: 2px;
+  column-gap: 2px;
+  background: #F6F6F6;
+  padding: 2px 0;
+    margin-left: 7%;
+    height: auto;
+  width: 86%;
+  
+  }
+  .producttheohang .list-product .product-item {
+  background: white;
+  width: calc(16% - -9px);
+  }
+  .producttheohang .list-product .product-item .product-top{
+  position: relative;
+  overflow: hidden;
+  }
+  .producttheohang .list-product .product-item:hover .product-top .product-thumb img{
+  /*làm to ảnh*/
+  transform: scale(1.1);
+  /*làm chậm hiệu ứng chuyển đôngj*/
+  transition:  all 0.5s ease-in-out;
+  /*làm mờ khi hover*/
+  filter:opacity(80%) }
+  .producttheohang .list-product .product-item .product-top .product-thumb img{
+  
+  width: 100%;
+  }
+    .gia1{
+    margin-left: 25%;
+    float: right;
+
+
+  }
+.name1{
+    white-space: nowrap; 
+    max-width: 80%; 
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-left: 10%;
+  }
+  .producttheohang .list-product .product-item p{
+    white-space: nowrap; 
+    max-width: 80%; 
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-left: 10%;
+  }
+  .producttheohang .list-product .product-item b{
+    margin-left: 25%;
+   width: 50%;
+  color: #0c5bee;
+  }
+  .producttheohang .list-product .product-item  .gia{
+    margin-left: 25%;
+    
+
+  }
+  .producttheohang .list-product .product-item .product-top a.buy-now{
+  
+  
+  text-transform: uppercase;
+  text-decoration: none;
+  text-align: center;
+  display: block;
+  background-color: #640310;
+  color: #fff;
+  padding: 10px 0px;
+  position: absolute;
+  width: 100%;
+  bottom: -45px;
+  transition: 0.25s ease-in-out;
+  opacity: 0.85;
+  }
+  .allproduct .list-product .product-item .product-top:hover a.buy-now{
+  
+  bottom: 0px;
+  }
+
+
+
+
+.productcungloai1 .heading{
+    font-size: 28px;
+    color:#640310 ;
+    text-align:  center;
+    margin-top: 180px ;
+}
+.productcungloai1 .heading::after{
+    content: "";
+    position: absolute;
+    width: 100px;
+    height: 5px;
+    background-color:#640310;
+    left: 47%;
+    margin-top: 50px;
+
+}
+
+.productcungloai1 .list-product{
+    margin-left: 60px ;
+    margin-right: 40px ;
+border-radius: 25px;
+    background-color: transparent;
+    margin-top: 90px;
+    
+}
+.productcungloai1 .list-product .product-item {
+
+    
+    margin-top: 30px;
+    margin-bottom: 30px;
+margin-left:0px ;
+    width: 30%;
+    margin-left: 30px;
+    display: inline-block;
+    border: 2px solid #f8f8fc;
+
+    
+}
+.productcungloai1 .list-product .product-item .product-top{
+    position: relative;
+    overflow: hidden;
+}
+.productcungloai1 .list-product .product-item:hover .product-top .product-thumb img{
+/*lÃ m to áº£nh*/
+    transform: scale(1.1);
+    /*lÃ m cháº­m hiá»‡u á»©ng chuyá»ƒn Ä‘Ã´ngj*/
+    transition:  all 0.5s ease-in-out;
+/*lÃ m má»� khi hover*/
+filter:opacity(80%) }
+.productcungloai1 .list-product .product-item .product-top .product-thumb img{
+
+   width: 80%;
+       margin-left: 11%;
+}
+.productcungloai1 .list-product .product-item p{
+    margin-left: 150px;
+}
+.productcungloai1 .list-product .product-item b{
+    margin-left: 190px;
+    color: #0c5bee;
+}
+.productcungloai1 .list-product .product-item .product-top a.buy-now{
+
+
+    text-transform: uppercase;
+    text-decoration: none;
+    text-align: center;
+    display: block;
+    background-color: #640310;
+    color: #fff;
+    padding: 10px 0px;
+    position: absolute;
+    width: 100%;
+    bottom: -45px;
+    transition: 0.25s ease-in-out;
+    opacity: 0.85;
+ }
+ .productcungloai1 .list-product .product-item .product-top:hover a.buy-now{
+
+ bottom: 0px;
+}
+
+
+
+
+
+
+
+
+ .detai .detai-item .detai-img img{
+     margin-top: 164px;
+     margin-left: 100px;
+     border-radius: 25px;
+     width: 400px;
+     height: 400px;
+ }
+ .detai .detai-item .anhphu{
+    margin-left: 100px;
+
+ }
+ .detai .detai-item .anhphu img{
+    display: inline-block; 
+    width: 18%;
+    height:90px;
+
+    margin-left: 15px;
+    border-radius: 15px;
+
+}
+.detai .detai-item .anhphu img:hover{
+    border: 2px solid rgb(0, 0, 0);
+     /*lÃ m to áº£nh*/
+   transform: scale(1.1);
+   /*lÃ m cháº­m hiá»‡u á»©ng chuyá»ƒn Ä‘Ã´ngj*/
+   transition:  all 0.5s ease-in-out;
+/*lÃ m má»� khi hover*/
+filter:opacity(80%) ;
+
+}
+
+ .detai .detai-thongtin {
+     margin-top: 140px;
+ }
+ .detai .detai-thongtin .detai-thuonghieu{
+font-size: 18px;}
+.detai .detai-thongtin .detai-gia{
+    font-size: 24px;
+color: blue;
+font-family: sans-serif;}
+.detai .detai-thongtin .quatangkem .title{
+    font-size: 20px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+
+
+}
+.detai .detai-thongtin .quatangkem img{
+    width: 90px;
+    height: 80px;
+    float:left;
+  border-radius: 18px;
+}
+.detai .detai-thongtin .quatangkem .thongtinquatang{
+    font-size: 18px;
+  margin-left: 140px;
+
+}
+.detai .detai-thongtin .quatangkem hr{
+  margin-top: 80px;
+}
+.detai .detai-thongtin .button-buy{
+    margin-top: 80px;
+}
+.detai .detai-thongtin .button-buy a.muahang{
+    text-align: center;
+
+    float: left;
+
+    color: white;
+width: 45%;
+height: 50px;
+border-radius: 15px;
+    
+background-color: rgb(20, 53, 195);
+font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+}
+.detai .detai-thongtin .button-buy a.muahang:hover{
+    
+
+    color: white;
+
+    
+background-color: rgb(65, 98, 247);
+
+}
+.detai .detai-thongtin .button-buy a.themvaogio p{
+    margin-top: 13px;
+}
+.detai .detai-thongtin .button-buy a.muahang p{
+    margin-top: 13px;
+}
+.detai .detai-thongtin .button-buy a.themvaogio{
+    text-align: center;
+
+float: right;
+margin-left: 30px;
+
+    color: rgb(20, 53, 195);
+width: 45%;
+height: 50px;
+border-radius: 15px;
+    
+background-color:rgb(223, 222, 222) ;
+font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+}
+.detai .detai-thongtin .button-buy a.themvaogio:hover{
+    
+    
+        color: rgb(20, 53, 195);
+    
+        
+    background-color:rgb(252, 225, 225) ;
+   
+    }
+ .detai .detai-item .detai-img:hover img{
+   /*lÃ m to áº£nh*/
+   transform: scale(1.1);
+   /*lÃ m cháº­m hiá»‡u á»©ng chuyá»ƒn Ä‘Ã´ngj*/
+   transition:  all 0.5s ease-in-out;
+/*lÃ m má»� khi hover*/
+filter:opacity(80%) ;
+}
+
+ .detai{
+    background-color: #f8f8fc;
+    border-radius: 25px;
+    height: 800px;
+    margin-top: 30px;
+}
+
+
+.tacgia{
+    background: white;
+    color: black;
+    text-align: center;
+    padding: 10px;
+}
+.tacgia p{
+padding-top: 10px;
+}
+.backtotop{
+    width: 50px;
+    height: 50px;
+    background-color: #f53809;
+    text-align: center;
+    position: fixed;
+    border-radius: 25px ;
+z-index: 999;
+bottom: 0px;
+right: 0px;
+margin-bottom: 80px;
+margin-right: 50px;
+
+}
+.backtotop a img{
+    margin-top: 10px;
+
+}
+
+.facebook{
+    width: 50px;
+    height: 50px;
+    background-color: #0c5bee;
+    text-align: center;
+    position: fixed;
+    border-radius: 25px ;
+z-index: 999;
+bottom: 0px;
+right: 0px;
+margin-bottom: 170px;
+margin-right: 50px;
+}
+.facebook a img{
+    margin-top: 10px;
+}
+
+.location{
+    width: 50px;
+    height: 50px;
+    background-color: #f8f53d;
+    text-align: center;
+    position: fixed;
+    border-radius: 25px ;
+z-index: 999;
+bottom: 0px;
+right: 0px;
+margin-bottom: 250px;
+margin-right: 50px;
+}
+.location a img{
+    margin-top: 10px;
+}
+
+.gmail{
+    width: 50px;
+    height: 50px;
+    background-color: #cac9c9;
+    text-align: center;
+    position: fixed;
+    border-radius: 25px ;
+z-index: 999;
+bottom: 0px;
+right: 0px;
+margin-bottom: 320px;
+margin-right: 50px;
+}
+.gmail a img{
+    margin-top: 10px;
+}
+.phantrang{
+    margin-top: 30px;
+    margin-left: 43%;
+}

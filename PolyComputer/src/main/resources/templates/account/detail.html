@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:replace="~{/layout/index ::  dynamic(~{::main})}">
+
+<head>
+    <meta charset="ISO-8859-1">
+    <title>Insert title here</title>
+
+</head>
+
+<body  ng-app="account-app" ng-controller="account-ctrl">
+    <main>
+        <div class="tieude row">
+
+            <div class=" a col-5">
+                <h3>Quản lý tài khoản > <a style="color: #640310;" href="/"> Trang chủ</a></h3>
+            </div>
+
+        </div>
+        <hr>
+
+        <div class="row" style="margin-top: 50px;">
+            <div class="col-2" style="margin-left: 5%;margin-top: 10px; height: 400px;">
+                <div class="row">
+                    <h2 style="margin-left: 20%; font-weight: 700 !important;">[[${#request.remoteUser}]]</h2>
+                </div>
+                <div class="row" style="margin-top: 20px;margin-left: 20%;">
+                    <img
+                        src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAVRJREFUSEu1lY0xBEEQRt9FwkWACISACBABIkAEXASIAJE4ESAS6l3tqLm+2dm/2q7autqbnn49PV/3LpjZFjPHpw/gAjgGDpvHnNbN8wa815KsAU6BB2C/45TfwA0gbMfaAI/A1cDyuUfQlpUAY4KnoCvgOidEgGV5HZh5dD/LyxUB1nNvIsAYyxQjB6iWp4nB0/b/U+SAZ+A8ALw078S6qqjc7ps1E4trL4D/b/WB2j5oEYFS/QprlsFyaL9hzVhHERCdXDdzs1GydyGI70k1t20tkJeoBJhyJZvYOaBUorGAzzRWui7ZOgqumTPqIzgUL7nUZM4XJVczfU6CQ1Gm+pQa7RJQwiUr9c5PPiD7jgqzFJJGs6e1Z/yNVh0VOs867FI2YyA7kzTKNB7V4wvqGn7W3IYc9MHJYYJ8lGMaJepc+Rq0GDgF6PNNHttsm32zA/4AsaZAGSvkecYAAAAASUVORK5CYII=" />
+                    <a href="" th:href="@{/account/details}" style="margin-left: 10px; color: rgb(24, 0, 245);font-weight: 700 !important;">Thông tin
+                        tài khoản</a>
+                </div>
+                <div class="row" style="margin-top: 20px;margin-left: 20%;">
+                    <img
+                        src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAFtJREFUSEtjZKAxYKSx+QyjFhAM4QEJov9QZ8Esh/EJuhZNH5iLzQc0t4BYlxKlbkDigCiXEatoQOJgNJJRomdAUhHN44DmFhCbxIlSNyBxQJTLiFU06gOCIQUAArwMGUsaCXEAAAAASUVORK5CYII=" />
+                    <a href=""th:href="@{/order/list}" style="margin-left: 10px;">Quản lý đơn hàng</a> 
+                </div>
+                <hr style="margin-left: 20%; width: 50%;">
+
+            </div>
+            <div class="col-9">
+                <div class="thanhtoan1 row" >
+                    <div class="thanhtoan1-item">
+                        <div class="heading1" style="font-size: 1.25rem;">Thông tin tài khoản</div>
+                        <form class="row" style="margin: 30px;" th:object="${item}" th:action="@{/account/saveOrUpdate}" method="post">
+
+                            <div class="col-6" style="margin-left:25%;">
+                                <div class="form-group">
+                                    <label for="ten">Tài khoản:</label>
+                                    <input type="text"  th:field="*{username}" class="form-control" aria-describedby="productIdhelpId"
+                                    readonly>
+
+
+                                </div>
+                            </div>
+                            <div class="col-6" style="margin-left:25%;">
+                                <div class="form-group">
+                                    <label for="ten">Họ và tên:</label>
+                                    <input type="text" class="form-control" aria-describedby="productIdhelpId"
+                                     th:field="*{fullName}">
+
+                                </div>
+                            </div>
+                            <div class="col-6" style="margin-left:25%;">
+                                <div class="form-group">
+                                    <label for="name">email:</label>
+                                    <input type="text" class="form-control" aria-describedby="productIdhelpId"
+                                        th:field="*{email}" >
+
+
+                                </div>
+                            </div>
+                                <div class="col-6" style="margin-left:25%;">
+                                    <div class="form-group">
+                                        <label for="name">Số điện thoại:</label>
+                                        <input type="text" class="form-control" aria-describedby="productIdhelpId"
+                                            th:field="*{phoneNumber}" >
+    
+    
+                                    </div>
+                                </div>
+                               
+                         
+                            
+                            
+                            <div class="col-6" style="margin-left:25%;">
+                                <div class="form-group">
+                                    <label for="ten">Địa chỉ:</label>
+
+                                    <input type="text" class="form-control" aria-describedby="productIdhelpId"
+                                    th:field="*{address}" >
+
+                                </div>
+                            </div>
+
+                            <div class="col-6" style="margin-left:25%;"> 
+                                <button  class="btn "
+                                    style="background-color: #640310;color: #fff;"><i class="fas fa-save"></i>
+                                    <span>Cập nhật</span>
+                                </button>
+                            </div>
+                            
+
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+    </main>
+</body>
+
+</html>

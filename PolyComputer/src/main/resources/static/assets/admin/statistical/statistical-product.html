@@ -1,0 +1,53 @@
+<div class="card shadow mb-4">
+    <div class="card-header py-3">
+        <h6 class="m-0 font-weight-bold text-primary">Thống kê doanh thu sản phẩm</h6>
+    </div>
+    <div class="card-body">
+        <table class="table table-bordered">
+            <thead>
+              <tr>
+                <th scope="col">Mã SP</th>
+                <th scope="col">Hình Ảnh</th>
+                <th scope="col">Tên</th>
+                <th scope="col">Tổng số lượng</th>
+                <th scope="col">Tổng doanh thu</th>
+              </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th>1</th>
+                    <th>abc.jpg</th>
+                    <th>ASUS</th>
+                    <th>10</th>
+                    <th>123</th>
+                </tr>
+                <!-- <tr ng-repeat="item in pager.items">
+                    <th scope="row">{{item.categoryId}}</th>
+                    <th scope="row">{{item.categoryImage}}</th>
+                    <td>{{item.categoryName}}</td>
+                </tr> -->
+            </tbody> 
+          </table>
+          <div class="row">
+              <div class="col-sm-6">
+                Hiển thị danh mục thứ <span>{{(pager.page+1)*5-4}}</span> đến {{(pager.page+1)*5}} trong danh sách Danh Mục
+              </div>
+              <div class="col-sm-6">
+                <button ng-click="pager.first()" class="btn btn-primary">
+                    <i class="fas fa-step-backward"></i>
+                </button>
+                <button ng-click="pager.prev()" class="btn btn-primary">
+                    <i class="fas fa-backward"></i>
+                </button>
+                <button class="btn btn-success">{{pager.page + 1}}/{{pager.count}} trang</button>
+                <button ng-click="pager.next()" class="btn btn-primary">
+                    <i class="fas fa-forward"></i>
+                </button>
+                <button ng-click="pager.last()" class="btn btn-primary">
+                    <i class="fas fa-step-forward"></i>
+                </button>
+              </div>
+          </div>
+         
+    </div>
+</div>

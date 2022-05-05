@@ -1,0 +1,72 @@
+<div class="card shadow mb-4">
+    <div class="card-header py-3">
+        <h6 class="m-0 font-weight-bold text-primary">{{titleForm}}</h6>
+    </div>
+    <div class="card-body">
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label>Họ Và Tên:</label>
+                    <input type="text" class="form-control" placeholder="" ng-model="form.fullName" disabled>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label>Địa Chỉ Giao Hàng:</label>
+                    <input type="text" class="form-control" placeholder="" ng-model="form.address" disabled>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label>Số Điện Thoại:</label>
+                    <input type="text" class="form-control" placeholder="" ng-model="form.phoneNumber" disabled>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label>Email:</label>
+                    <input type="text" class="form-control" placeholder="" ng-model="form.address" disabled>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label>Tổng Tiền Thanh Toán:</label>
+                    <input type="number" class="form-control" placeholder="" ng-model="form.tongTienThanhToan" disabled>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label>Trạng Thái:</label>
+                    <select ng-model="form.statusId.statusId" class="form-control">
+                        <option value="" disabled>-Chọn Trạng Thái-</option>
+                        <option ng-repeat= "s in statuses" ng-value="s.statusId">{{s.statusName}}</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col form-group">
+                <label for="mota">Ghi Chú:</label>
+                <textarea ng-model="form.description" id="mota" style="width:100%; height: 100px;" class="form-control" disabled></textarea>
+            </div>
+        </div>
+    </div>
+    <div class="card-footer">
+        <button ng-click="create()" class="btn btn-primary" ng-show="fillStatus">
+            Lưu
+        </button>
+        <button ng-click="update()" class="btn btn-success" ng-show="!fillStatus">
+            Cập Nhật
+        </button>
+        <button ng-click="delete(form)" class="btn btn-danger">
+            Xóa
+        </button>
+        <button ng-click="reset()" class="btn btn-info">
+            Reset
+        </button>
+    </div>
+</div>

@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:replace="~{/layout/index ::  dynamic(~{::main})}">
+
+<head>
+    <meta charset="ISO-8859-1">
+    <title>Insert title here</title>
+
+
+</head>
+
+<body>
+    <main th:object="${item}">
+
+        <div class="all">
+            <div class="detai row">
+                <div class="detai-item col-4">
+                    <div class="detai-img ">
+                        <img id="main-img" th:src="@{'/assets/images/'+*{anhChinh}}" alt="">
+                    </div>
+                    <hr>
+                    <div class="anhphu" id="p" >
+                        <img th:src="@{'/assets/images/'+*{anhPhu1}}" alt="">
+                        <img th:src="@{'/assets/images/'+*{anhPhu2}}" alt="">
+                        <img th:src="@{'/assets/images/'+*{anhPhu3}}" alt="">
+                        <img th:src="@{'/assets/images/'+*{anhPhu4}}" alt="">
+
+
+
+
+                        <!--productImage-->
+
+                    </div>
+
+                </div>
+
+                <div class="detai-thongtin col-sm-3 ">
+                    <h3 class="detai-tieude" style="height: 120px;    font-size: 1.4rem;" th:text="*{productName}"> </h3>
+                    <p class="detai-thuonghieu" style="height: 36px;" th:text="' Loại : ' + *{category.categoryName}">
+                    </p>
+                    <p class="detai-gia"
+                        th:text="' Giá :  ' +*{#numbers.formatDecimal(gia,0,'COMMA', 0, 'POINT')} + ' đ'"></p>
+
+                    <th:block th:if="*{giamGia != NULL}">
+                        <p class="detai-gia"
+                            style="text-decoration-line:line-through; font-size: 16px; color: rgb(138, 139, 139);"
+                            th:text="' Giảm :  ' +  *{#numbers.formatDecimal(giamGia,0,'COMMA', 0, 'POINT')} + ' đ'">
+                        </p>
+                    </th:block>
+                    <th:block th:if="*{giamGia == NULL}">
+                        <p class="detai-gia"
+                            style="text-decoration-line:line-through; font-size: 16px; color: rgb(138, 139, 139);"></p>
+                    </th:block>
+                    <hr>
+                    <div class="quatangkem">
+                        <h3 class="title"> Quà tặng kèm</h3>
+                        <th:block th:if="*{gift == NULL}">
+                        </th:block>
+                        <th:block th:if="*{gift != NULL}">
+                            <img th:src="@{'/assets/images/'+*{gift.giftImage}}" alt="">
+                        </th:block>
+
+                        <th:block th:if="*{gift == NULL}">
+                            <p class="thongtinquatang">Không có</p>
+                        </th:block>
+                        <th:block th:if="*{gift != NULL}">
+                            <p class="thongtinquatang" th:text="*{gift.giftName}"></p>
+                        </th:block>
+
+                        <hr>
+                    </div>
+
+                    <div class="button-buy">
+
+                        <th:block th:if="${#request.remoteUser}">
+                            
+                            <button class="themvaogio" style="width: 100%;" th:attr="ng-click=@{|cart.add(*{productId})|}">
+                                <p>thêm vào giỏ hàng</p>
+                            </button>
+                            <!-- dung if neu ma dang nhap roi thi hien thi   -->
+                            
+                        </th:block>
+                        <th:block th:unless="${#request.remoteUser}">
+                            <a class="themvaogio" style="width: 100%;"  th:href="@{/security/login/form}">
+                                <p>thêm vào giỏ hàng</p>
+                            </a>
+                         
+
+                            <!-- nguoc lai neu chua co hien thi dang nhap -->
+                        </th:block>
+
+                    </div>
+                </div>
+                <div class="detai-thongtinsanpham col-sm-4 ">
+                    <h3 class="title-thongtin">Thông tin sản phẩm</h3>
+                    <table>
+                        <tr>
+                            <th>Cung cấp</th>
+                            <th>Thông số</th>
+                        </tr>
+                        <tr>
+                            <td>Loại</td>
+                            <td th:text="*{category.categoryName}"> </td>
+
+                        </tr>
+                        <tr>
+                            <td>Khối lượng</td>
+
+                            <td th:text="*{khoiLuong}"></td>
+
+                        </tr>
+                        <tr>
+                            <td>Kích thước</td>
+                            <td th:text="*{kichThuoc}"></td>
+
+                        </tr>
+                        <tr>
+                            <td>Nhãn hàng</td>
+                            <td th:text="*{brand.brandName}"></td>
+
+                        </tr>
+                        <tr>
+                            <td>CPU</td>
+                            <td th:text="*{cpu.cpuName}"></td>
+
+                        </tr>
+                        <tr>
+                            <td>Chip Đồ Họa</td>
+                            <td th:text="*{chipDoHoa.chipDoHoaName}"></td>
+
+
+                        </tr>
+                        <tr>
+                            <td>Màn Hình</td>
+                            <td th:text="*{manHinh.manHinhName}"></td>
+
+
+                        </tr>
+                        <tr>
+                            <td>RAM</td>
+                            <td th:text="*{ram.ramName}"></td>
+
+
+                        </tr>
+                        <tr>
+                            <td>Lưu Trữ</td>
+                            <td th:text="*{luuTru.luuTruName}"></td>
+
+
+                        </tr>
+                        <tr>
+                            <td>Hệ Điều Hành</td>
+                            <td th:text="*{heDieuHanh.heDieuHanhName}"></td>
+
+
+                        </tr>
+                        <tr>
+                            <td>Pin</td>
+                            <td th:text="*{pin.pinName}"></td>
+
+
+                        </tr>
+                        <tr>
+                            <td>Số cổng</td>
+                            <td th:text="*{soCongLuuTruToiDa.soCongLuuTruToiDaName}"></td>
+
+
+                        </tr>
+
+                    </table>
+                    <a href="" data-target="#modelId" data-toggle="modal" style="margin-left: 40%;margin-top: 10px;">Xem
+                        thêm thông tin</a>
+                </div>
+
+
+                <div class="modal fade" id="modelId" tabindex="-1" role="dialog" aria-labelledby="modelTitleId"
+                    aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content" style="width: 759px;">
+                            <div class="modal-header">
+                                <h5 class="modal-title">Thông tin cấu hình</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+
+                                <table>
+                                    <tr>
+                                        <th>Cung cấp</th>
+                                        <th>Thông số</th>
+                                    </tr>
+                                    <tr>
+                                        <td>Tên</td>
+                                        <td th:text="*{productName}"> </td>
+
+                                    </tr>
+                                    <tr>
+                                        <td>Loại</td>
+                                        <td th:text="*{category.categoryName}"> </td>
+
+                                    </tr>
+                                    <tr>
+                                        <td>Khối lượng</td>
+
+                                        <td th:text="*{khoiLuong}"></td>
+
+                                    </tr>
+                                    <tr>
+                                        <td>Kích thước</td>
+                                        <td th:text="*{kichThuoc}"></td>
+
+                                    </tr>
+                                    <tr>
+                                        <td>Nhãn hàng</td>
+                                        <td th:text="*{brand.brandName}"></td>
+
+                                    </tr>
+                                    <tr>
+                                        <td>CPU</td>
+                                        <td th:text="*{cpu.cpuName}"></td>
+
+                                    </tr>
+                                    <tr>
+                                        <td>CPU Serie</td>
+                                        <td th:text="*{cpuSerie.cpuSerieName}"></td>
+
+                                    </tr>
+                                    <tr>
+                                        <td>Màu sắc</td>
+                                        <td th:text="*{color.colorName}"></td>
+
+                                    </tr>
+                                    <tr>
+                                        <td>Chip Đồ Họa</td>
+                                        <td th:text="*{chipDoHoa.chipDoHoaName}"></td>
+
+
+                                    </tr>
+                                    <tr>
+                                        <td>Màn Hình</td>
+                                        <td th:text="*{manHinh.manHinhName}"></td>
+
+
+                                    </tr>
+                                    <tr>
+                                        <td>RAM</td>
+                                        <td th:text="*{ram.ramName}"></td>
+
+
+                                    </tr>
+                                    <tr>
+                                        <td>Lưu Trữ</td>
+                                        <td th:text="*{luuTru.luuTruName}"></td>
+
+
+                                    </tr>
+                                    <tr>
+                                        <td>Số cổng lưu trữ tối đa</td>
+                                        <td th:text="*{soCongLuuTruToiDa.soCongLuuTruToiDaName}"></td>
+
+
+                                    </tr>
+                                    <tr>
+                                        <td>Công xuất hình</td>
+                                        <td th:text="*{congXuatHinh.congXuatHinhName}"></td>
+
+
+                                    </tr>
+                                    <tr>
+                                        <td>Cổng kết nối</td>
+                                        <td th:text="*{congKetNoi.congKetNoiName}"></td>
+
+
+                                    </tr>
+                                    <tr>
+                                        <td>Bàn phím</td>
+                                        <td th:text="*{banPhim.banPhimName}"></td>
+
+
+                                    </tr>
+                                    <tr>
+                                        <td>Hệ Điều Hành</td>
+                                        <td th:text="*{heDieuHanh.heDieuHanhName}"></td>
+
+
+                                    </tr>
+                                    <tr>
+                                        <td>Pin</td>
+                                        <td th:text="*{pin.pinName}"></td>
+
+
+                                    </tr>
+
+
+                                </table>
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+            </div>
+            <div class="mota">
+                <h3 class="heading">Mô tả sản phẩm</h3>
+                <p class="title-noidung " th:text="*{description}"></p>
+
+            </div>
+        </div>
+        <div class="allproduct">
+            <h3 class="heading"> Sản phẩm cùng hãng</h3>
+            <div class="list-product">
+                <div class="product-item"  th:each=" product : *{brand.products}">
+                    <div class="product-top">
+                        <a href="" class="product-thumb" th:href="@{|/product/details/${product.productId}|}">
+                            <img th:src="@{|/assets/images/${product.anhChinh}|}" alt="">
+                        </a>
+
+                        <a href="" class="buy-now" th:href="@{|/product/details/${product.productId}|}">Mua ngay</a>
+                    </div>
+                    <p th:text="${product.productName}"></p>
+                    <b>giá : [[${#numbers.formatDecimal(product.gia,0,'COMMA', 0, 'POINT')}]]₫ </b>
+
+                    <th:block th:if="${product.giamGia != NULL}">
+                        <h class="gia" style="text-decoration-line:line-through;margin-left: 20px;"
+                            th:text="${#numbers.formatDecimal(product.giamGia,0,'COMMA', 0, 'POINT')} + ' đ'"></h>
+                    </th:block>
+                    <th:block th:if="${product.giamGia == NULL}">
+                        <h class="gia" style="text-decoration-line:line-through;"></h>
+
+                    </th:block>
+                </div>
+
+
+
+
+
+
+
+
+
+            </div>
+        </div>
+        <div class="danhmuc">
+            <h3 class="heading"> Các nhãn hàng nổi tiếng</h3>
+            <div class="list-danhmuc">
+
+                <div class="danhmuc-item" th:each=" b : ${brand}">
+                    <a th:href="@{|/product/brand?cid=${b.brandId}|}">
+                        <img th:src="@{|/assets/images/${b.brandImage}|}" alt="">
+
+                    </a>
+                    <p>[[${b.brandName}]]</p>
+
+                </div>
+
+
+
+            </div>
+        </div>
+
+    </main>
+</body>
+
+</html>

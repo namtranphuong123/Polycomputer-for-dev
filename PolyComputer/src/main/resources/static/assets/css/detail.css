@@ -1,0 +1,383 @@
+
+header{
+    position: fixed;
+    top: 0px;
+    right: 0px;
+    left: 0px;
+    height: 110px;z-index: 999;
+}
+
+
+
+.banner{
+    width: 100%;
+    margin: 0 auto;
+    margin-top: 140px;
+}
+.banner img{
+    max-width: 100%;
+}
+.mota .heading{
+    font-size: 28px;
+    color:#640310 ;
+    text-align:  center;
+    margin: 40px 0;
+}
+.mota .heading::after{
+    content: "";
+    position: absolute;
+    width: 100px;
+    height: 5px;
+    background-color:#640310;
+    left: 47%;
+    margin-top: 50px;
+
+}
+.productcungloai .heading{
+    font-size: 28px;
+    color:#640310 ;
+    text-align:  center;
+    margin: 40px 0;
+}
+.productcungloai .heading::after{
+    content: "";
+    position: absolute;
+    width: 100px;
+    height: 5px;
+    background-color:#640310;
+    left: 47%;
+    margin-top: 50px;
+
+}
+.productcungloai .list-product .product-item {
+
+    margin-left: 70px;
+    width: 20%;
+    display: inline-block;
+    
+}
+.productcungloai .list-product .product-item .product-top{
+    position: relative;
+    overflow: hidden;
+}
+.productcungloai .list-product .product-item:hover .product-top .product-thumb img{
+/*làm to ảnh*/
+    transform: scale(1.1);
+    /*làm chậm hiệu ứng chuyển đôngj*/
+    transition:  all 0.5s ease-in-out;
+/*làm mờ khi hover*/
+filter:opacity(80%) }
+.productcungloai .list-product .product-item .product-top .product-thumb img{
+
+   max-width: 100%;
+}
+.productcungloai .list-product .product-item .product-top a.buy-now{
+
+
+    text-transform: uppercase;
+    text-decoration: none;
+    text-align: center;
+    display: block;
+    background-color: #640310;
+    color: #fff;
+    padding: 10px 0px;
+    position: absolute;
+    width: 100%;
+    bottom: -45px;
+    transition: 0.25s ease-in-out;
+    opacity: 0.85;
+ }
+ .detai .detai-item .detai-img img{
+     margin-top: 164px;
+     margin-left: 100px;
+     border-radius: 25px;
+     width: 400px;
+     height: 400px;
+ }
+ .detai .detai-item .anhphu{
+    margin-left: 100px;
+
+ }
+ .detai .detai-item .anhphu img{
+    display: inline-block; 
+    width: 18%;
+    height:90px;
+
+    margin-left: 15px;
+    border-radius: 15px;
+
+}
+.detai .detai-item .anhphu img:hover{
+    border: 2px solid rgb(0, 0, 0);
+     /*làm to ảnh*/
+   transform: scale(1.1);
+   /*làm chậm hiệu ứng chuyển đôngj*/
+   transition:  all 0.5s ease-in-out;
+/*làm mờ khi hover*/
+filter:opacity(80%) ;
+
+}
+
+ .detai .detai-thongtin {
+     margin-top: 140px;
+ }
+ .detai .detai-thongtin .detai-thuonghieu{
+font-size: 18px;}
+.detai .detai-thongtin .detai-gia{
+    font-size: 24px;
+color: blue;
+font-family: sans-serif;}
+.detai .detai-thongtin .quatangkem .title{
+    font-size: 20px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+
+
+}
+.detai .detai-thongtin .quatangkem img{
+    width: 90px;
+    height: 80px;
+    float:left;
+  border-radius: 18px;
+}
+.detai .detai-thongtin .quatangkem .thongtinquatang{
+    font-size: 18px;
+  margin-left: 140px;
+
+}
+.detai .detai-thongtin .quatangkem hr{
+  margin-top: 80px;
+}
+.detai .detai-thongtin .button-buy{
+    margin-top: 80px;
+}
+.detai .detai-thongtin .button-buy a.muahang{
+    text-align: center;
+
+    float: left;
+
+    color: white;
+width: 45%;
+height: 50px;
+border-radius: 15px;
+    
+background-color: rgb(20, 53, 195);
+font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+}
+.detai .detai-thongtin .button-buy a.muahang:hover{
+    
+
+    color: white;
+
+    
+background-color: rgb(65, 98, 247);
+
+}
+.detai .detai-thongtin .button-buy a.themvaogio p{
+    margin-top: 13px;
+}
+.detai .detai-thongtin .button-buy a.muahang p{
+    margin-top: 13px;
+}
+.detai .detai-thongtin .button-buy a.themvaogio{
+    text-align: center;
+
+float: right;
+margin-left: 30px;
+
+    color: rgb(20, 53, 195);
+width: 45%;
+height: 50px;
+border-radius: 15px;
+    
+background-color:rgb(223, 222, 222) ;
+font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+}
+.detai .detai-thongtin .button-buy a.themvaogio:hover{
+    
+    
+        color: rgb(20, 53, 195);
+    
+        
+    background-color:rgb(252, 225, 225) ;
+   
+    }
+ .detai .detai-item .detai-img:hover img{
+   /*làm to ảnh*/
+   transform: scale(1.1);
+   /*làm chậm hiệu ứng chuyển đôngj*/
+   transition:  all 0.5s ease-in-out;
+/*làm mờ khi hover*/
+filter:opacity(80%) ;
+}
+.detai .detai-thongtinsanpham {
+    margin-top: 140px;
+}
+.detai .detai-thongtinsanpham .title-thongtin{
+text-align: center;
+color: black;
+}
+
+.mota .title-mota{
+text-align: center;    }
+
+.mota .title-noidung{
+    margin: 0 120px 0px 100px;
+}
+.detai .detai-thongtinsanpham table {
+    margin-top: 20PX;
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  .detai .detai-thongtinsanpham table tr td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 10px;
+  }
+  
+  .detai .detai-thongtinsanpham table tr:nth-child(even) {
+    background-color: #dddddd;
+  }
+ .detai{
+    background-color: #f8f8fc;
+    border-radius: 25px;
+    height: 800px;
+    margin-top: 30px;
+}
+
+/* danhmuc */
+.danhmuc .heading{
+    font-size: 28px;
+    color:#640310 ;
+    text-align:  center;
+    margin: 40px 0;
+}
+.danhmuc .heading::after{
+    content: "";
+    position: absolute;
+    width: 100px;
+    height: 5px;
+    background-color:#640310;
+    left: 47%;
+    margin-top: 50px;
+
+}
+.danhmuc .list-danhmuc .danhmuc-item{
+
+    margin-left: 80px;
+    width: 15%;
+    display: inline-block; 
+    margin-top: 60px;
+}
+.danhmuc .list-danhmuc .danhmuc-item a img{
+    border-radius: 30px;
+    height: 250px;
+   max-width: 100%;
+}
+.danhmuc .list-danhmuc .danhmuc-item:hover a img{
+/*làm to ảnh*/
+    transform: scale(1.1);
+    /*làm chậm hiệu ứng chuyển đôngj*/
+    transition:  all 0.5s ease-in-out;
+/*làm mờ khi hover*/
+filter:opacity(80%) }
+.danhmuc .list-danhmuc .danhmuc-item p{
+    text-align: center;
+    font-size: 30px;
+}
+.danhmuc .list-danhmuc .danhmuc-item p:hover{
+    text-align: center;
+    font-size: 35px;
+    color: red;
+    font-weight: bold;
+    transition: all .4s linear;
+}
+
+.tacgia{
+    background: white;
+    color: black;
+    text-align: center;
+    padding: 10px;
+}
+.tacgia p{
+padding-top: 10px;
+}
+.backtotop{
+    width: 50px;
+    height: 50px;
+    background-color: #f53809;
+    text-align: center;
+    position: fixed;
+    border-radius: 25px ;
+z-index: 999;
+bottom: 0px;
+right: 0px;
+margin-bottom: 80px;
+margin-right: 50px;
+
+}
+.backtotop a img{
+    margin-top: 10px;
+
+}
+
+.facebook{
+    width: 50px;
+    height: 50px;
+    background-color: #0c5bee;
+    text-align: center;
+    position: fixed;
+    border-radius: 25px ;
+z-index: 999;
+bottom: 0px;
+right: 0px;
+margin-bottom: 170px;
+margin-right: 50px;
+}
+.facebook a img{
+    margin-top: 10px;
+}
+
+.location{
+    width: 50px;
+    height: 50px;
+    background-color: #f8f53d;
+    text-align: center;
+    position: fixed;
+    border-radius: 25px ;
+z-index: 999;
+bottom: 0px;
+right: 0px;
+margin-bottom: 250px;
+margin-right: 50px;
+}
+.location a img{
+    margin-top: 10px;
+}
+
+.gmail{
+    width: 50px;
+    height: 50px;
+    background-color: #cac9c9;
+    text-align: center;
+    position: fixed;
+    border-radius: 25px ;
+z-index: 999;
+bottom: 0px;
+right: 0px;
+margin-bottom: 320px;
+margin-right: 50px;
+}
+.gmail a img{
+    margin-top: 10px;
+}
+.phantrang{
+    margin-top: 30px;
+    margin-left: 43%;
+}

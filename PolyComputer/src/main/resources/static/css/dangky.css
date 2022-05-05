@@ -1,0 +1,101 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700&display=swap');
+html{
+    font-family:'Quicksand' , sans-serif;
+    scroll-behavior: smooth;
+}
+*{
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+header{
+    position: fixed;
+    top: 0px;
+    right: 0px;
+    left: 0px;
+    height: 110px;z-index: 999;
+}
+
+.button1{
+    margin-top: 130px;
+}
+.button1 .fu p{
+    margin-top: 5px;
+    margin-left: 20px;
+    font-size: 24px;
+    
+     }
+     .button1 .fu img{
+        margin-right: 15px;
+        
+         }
+    
+     .button1 .fu{
+        
+    text-align: center;
+        color: white;
+    width: 70%;
+    height: 50px;
+    border-radius: 15px;
+        
+    background-color: rgb(20, 53, 195);
+    font-family: inherit;
+        font-size: inherit;
+        line-height: inherit;
+        margin-left: 15%;
+        margin-right: 15%;
+        margin-top: 10%;
+    } 
+.button1 .dangnhapngay{
+    text-align: center;
+    width: 70%;
+    height: 50px;
+    border-radius: 15px;
+        
+    font-family: inherit;
+        font-size: inherit;
+        line-height: inherit;
+        margin-left: 15%;
+        margin-right: 15%;
+        margin-top: 50px;
+}
+
+    .button1 .dnbanggg p{
+        margin-top: 5px;
+        margin-left: 20px;
+        font-size: 24px;
+        
+         }
+         .button1 .dnbanggg img{
+            margin-right: 15px;
+            
+             }
+        
+         .button1 .dnbanggg{
+            
+        text-align: center;
+            color: white;
+        width: 70%;
+        height: 50px;
+        border-radius: 15px;
+            
+        background-color: rgb(220, 78, 66);
+        font-family: inherit;
+            font-size: inherit;
+            line-height: inherit;
+            margin-left: 15%;
+            margin-right: 15%;
+            margin-top: 10%;
+        } 
+.form{
+    height: 800px;
+    margin-top: 170px;
+    background-color: gainsboro;
+}
+
+.img{
+    margin-left: 40px;
+    margin-top: 30px;
+
+}
+

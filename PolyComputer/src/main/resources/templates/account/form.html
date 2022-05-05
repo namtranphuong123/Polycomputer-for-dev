@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:replace="~{/layout/index ::  dynamic(~{::main})}">
+
+<head>
+    <meta charset="ISO-8859-1">
+    <title>Insert title here</title>
+
+</head>
+
+<body >
+    <main>
+        <form name="registForm" ng-app="account-app"  ng-controller="account-ctrl">
+            <div class=" form row">
+               
+                <div class="img  col-3" style="    padding-left: 5%;
+                padding-top: 5%;">
+                    <label for="avata">
+                     <img   ng-src="{{'/assets/images/' + form.avata}}"   style="max-width: 100%; height: 240px;" >
+                    </label>
+    
+                    <div class="form-group" style="width: 450px;">
+                        
+                        <input type="file" class="form-group" id="brandImage"
+                    onchange="angular.element(this).scope().imageChanged(this.files)">
+    
+    
+    
+                    </div>
+                   
+                </div>
+    
+                <div class="img col-4">
+    
+                    <div class="form-group">
+                        <label>Tên đăng nhập:</label>
+                        <input ng-model="form.username" placeholder="Tên đăng nhập"class="form-control" type="text" required name="username">
+                        <br>
+                        <span class=" alert alert-danger" ng-show="registForm.username.$invalid">Phải nhập tên đăng nhập</span>
+
+                    </div>
+                    <div class="form-group">
+                        <label for="fullname">Họ và tên</label>
+                        <input type="text" class="form-control" ng-model="form.fullName" aria-describedby="namehelpId"
+                            required name="fullname" placeholder="Họ vè tên">
+                        <br>
+                        <span class=" alert alert-danger" ng-show="registForm.fullname.$invalid">Phải nhập họ tên</span>
+    
+                    </div>
+    
+                    <div class="form-group">
+                        <label for="password">PassWord</label>
+                        <input type="password" class="form-control" ng-model="form.password" aria-describedby="namehelpId"
+                            placeholder="password" required name="password" >
+                            <br>
+                            <span class=" alert alert-danger" ng-show="registForm.password.$invalid">Phải nhập Password</span>
+
+
+                    </div>
+
+    
+    
+                  
+                    <div class="form-group">
+                        <label for="email">email</label>
+                        <input type="email" class="form-control" ng-model="form.email" aria-describedby="namehelpId"
+                            name="email" placeholder="email">
+                        <br>
+                        <span class=" alert alert-danger" ng-show="registForm.email.$invalid">Phải nhập email</span>
+
+    
+                    </div>
+                    <div class="form-group">
+                        <button type="button" ng-click="create()" class="btn btn-outline-primary" style="width: 50%; margin-left: 40%;">Đăng ký ngay</button>
+                        <br>
+    
+    
+                    </div>
+    
+                </div>
+             
+                <div class=" button1 col-3">
+                    <a href="/security2/authorization/facebook" type="button" class="fu">
+                        <p> <img
+                                src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAWlJREFUSEu1lY1NwzAQhd+bgBGACYAJYASYAJiAdgJgAsoEwASUDTpC2aDdACZ46Co7sh3/BSmWrEiJfd/57vmFmHlw5vhoAiTdAbgEcO6m5bR1c03yq5ZkESDpGsALgJPGKXcAliTXuXVZgKQVgIeJ5VuRXKZ7RoB/BvdxX0kuQkgEcGX5rGS+B7AIyyHpCcBjsOcm/J4CrJ7HBcCvNZmkrRlGBrAjeeoXDACnlrdK9h8kTVGHIenKqcueNsMxnCIEvAO4rQCeSVo5LLgprFbKIZkQYNo+6wSkdU+3bUle2MsQoIYswxO0ACB5iN0E+IUluKSN60W0JAfIKqgD8APgKEngm6RZS3SCbJM7ALnSZptsEqzJdEoP7klawrGbSqpdtF7AnuRgkFOsohdQtgp3iUpO2gOom11gA7mGtwCRlYy8KNW5swM7jTe/EmDksGGs3l+mmdnGK8MZY/SudBGbgIZ9ND/PDvgDFmC1GY5MnWUAAAAASUVORK5CYII=" />Facebook
+                        </p>
+                    </a>
+                    <a  href="/security2/authorization/google" type="button" class="dnbanggg">
+                        <p> <img
+                                src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAXJJREFUSEvFVYtNAkEUnOmADtQKtAOxA61ArUCsQKxA6QAq0A6UCpAOtAOtYMzoHtlbdvfuSAgvuYTkHjPvM2+O2HNwz/g4PIGkMYBzAGfhGQH4CM+M5GdtCsUOJBnoCcBNxxhfAdyS/M7lZQkkudoXAMc9d+ROJr0IQuWrAvgygHhkTSxIFrvc6kDSHMB1BPDjMZH0KDYhaQpgVKq8SWwRhIW+JeBjkl7qTpESuKqHCOkqrXwoS0rwHiT5h0MyN0LnqEJ0H3ecEljTR+HPS5K+gVZIqoE795GkJ/FfZLK4vRP0HVFclw/ytLS3riV7ns+1xUry+7so5yS2jy6Z+vwvSjINF29ZuwvHF8nW9edUklZkkinJWbIvX6+9qgH3a3uSD3UTOYLGLRs1xfk+OBNuqQvAmqQ9rBU1s7M15EhyK1mbNOeoXXZtPccLzIEvAEwG2XUya7d9GdzVvz1C34slPd/5g1OT5pB3h/8mD6k2l/sLVMKOGS+JMUcAAAAASUVORK5CYII=" />Google
+                        </p>
+                    </a>
+    
+                    <a class="dangnhapngay" type="button" th:href="@{/security/login/form}">Bạn đã có tài khoản ? Đăng nhập ngay</a>
+                
+                </div>
+            </div>
+    
+        </form>
+    </main>
+</body>
+
+</html>

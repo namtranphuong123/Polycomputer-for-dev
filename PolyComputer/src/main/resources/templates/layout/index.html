@@ -1,0 +1,291 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org" th:fragment="dynamic(main)">
+
+<head>
+    <meta charset="utf-8">
+    <title>Poly's Computer</title>
+
+    <!-- link css -->
+    <link rel="stylesheet" href="/css/style.css">
+
+    <link rel="stylesheet" href="/css/sanphamtheohang.css">
+    <link rel="stylesheet" href="/css/dangky.css">
+    <link rel="stylesheet" href="/css/dangnhap.css">
+    <link rel="stylesheet" href="/css/detail.css">
+    <link rel="stylesheet" href="/css/gioithieu.css">
+    <link rel="stylesheet" href="/css/guimail.css">
+    <link rel="stylesheet" href="/css/thanhtoan.css">
+    <link rel="stylesheet" href="/css/cart.css">
+    <link rel="stylesheet" href="/css/allproduct.css">
+    <!--<script th:src="@{/assert/js/shopping-cart-app.js}"></script>-->
+
+    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <!-- link sclick-->
+    <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.min.css"
+        integrity="sha512-17EgCFERpgZKcm0j0fEq1YCJuyAWdz9KUtv1EjVuaOz8pDnh/0nZxmU6BBXwaaxqoi9PQXnRWqlcDB027hgv9A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.css"
+        integrity="sha512-yHknP1/AwR+yx26cB1y0cjvQUMvEa2PFzt1c9LlS4pRQ5NOTZFWbhBig+X9G9eYW/8m0/4OXNx8pxJ6z57x0dw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- link icons-->
+    <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<!-- link sưeat -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.4/dist/sweetalert2.min.css">
+
+
+
+</head>
+
+<body class="container" ng-app="shopping-cart-app" ng-controller="shopping-cart-ctrl">
+
+    <header>
+        <div th:replace="/layout/header.html"></div>
+    </header>
+
+    <article>
+        <div th:replace="${main}"></div>
+    </article>
+
+
+    <div style="margin-top: 300px;" class="modal fade" id="confirmationId" tabindex="-1" role="dialog"
+        aria-labelledby="modelTitleId" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Thông Báo</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    Bạn có muốn đăng xuất không ?
+                </div>
+                <div class="modal-footer">
+                    <a id="yesOption" type="button" class="btn btn-danger">Có</a>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Không</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div style="margin-top: 300px;" class="modal fade" id="confirmationIdhuy" tabindex="-1" role="dialog"
+        aria-labelledby="modelTitleId" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Thông Báo</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    Bạn có muốn hủy đơn hàng này không ?
+                </div>
+                <div class="modal-footer">
+                    <a id="yesOption" type="button" class="btn btn-danger">Có</a>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Không</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div style="margin-top: 300px;" class="modal fade" id="confirmationId1" tabindex="-1" role="dialog"
+        aria-labelledby="modelTitleId" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Thông Báo</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    Bạn có muốn xóa tất cả mặt hàng không ?
+                </div>
+                <div class="modal-footer">
+                    <a id="yesOption" type="button" class="btn btn-danger">Có</a>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Không</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div th:replace="/layout/footer.html"></div>
+    </footer>
+    <div class="tacgia">
+        <p>Copyright © 2022 . All rights reser ved by PolyComputer team !</p>
+    </div>
+
+    <div class="location">
+        <a data-toggle="modal" data-target="#modelId1">
+            <img
+                src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAVpJREFUSEu1ldFRAzEQQ6UOKAEqgFQAVEAJ0AGhk1ABpBKgg1ABlBAqUEYz9o3PZ/uWj/jTs6en1do+4syLZ9bHKkDSJYBnAHcAbpKhA4BPAK8kf0cmhwBJuyQ+0tiRfOkVdAGS7PI6GOGB5KZV2wQEndd6jmtbby4AKfOfgPN9msNbUXtVz6QFiOR+BGCxo6QnABmy6KIFWMvezr08n3sANvSYT1c9ixZAg3j2JO0Ykt4BPAC4KOtJzjT/A5jEC0B2nhl/JOfA2q0kX6Dbaj8i7k++SPpCTqvVgVsvnUXFLTqr9UYLYAcf2UKZacq9jqU0vCHpQ9LvIOU7naQMCIgv4ml2kACzLgKXziUL911AgkQuXGY3n4khoI5q0EUzmmmGo/Yl+Uz72PZe1W//J/xk9HQiP5weZFV8NaLsqtFJSDwMSPNwJx6813YUy+o9CB7LUNnqDEIqg6ITdqqOGcoT9xQAAAAASUVORK5CYII=" />
+    </div>
+    <div class="modal fade" id="modelId1" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content" style="width: 759px; margin-top : 171px; height: 600px;">
+                <div class="modal-header">
+                    <h5 class="modal-title">Địa chỉ liên hệ</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="pd-body row">
+                    <div class="pb-select-location col-4">
+                        <div class="pb-select-location-item">
+                            <div><img
+                                    src="https://sdk-vn.pushdi.com/image/maxlead/widget_icon_building.svg"><span>PolyComputer</span>
+                            </div>
+                            <div><img src="https://sdk-vn.pushdi.com/image/maxlead/widget_icon_location.svg"><span>137
+                                    Nguyễn Thị Thập - Liên Chiểu - Đà Nẵng</span></div>
+                            <div><img
+                                    src="https://sdk-vn.pushdi.com/image/maxlead/widget_icon_call.svg"><span>02927306867</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-8" style="height: 100%;">
+                        <iframe id="pd-iframe-map" style="border: 0;
+                        background-color: #d8dde6;
+                        opacity: 1;
+                        height: 533px;
+                        width: 100%;
+                        "
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7667.678798068964!2d108.1708925995409!3d16.07382166626588!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x314218e6e07b1c3f%3A0x459e4bf5a2af323e!2zVHLGsOG7nW5nIENhbyDEkeG6s25nIEZQVCBQb2x5dGVjaG5pYyDEkMOgIE7hurVuZw!5e0!3m2!1svi!2s!4v1646577440410!5m2!1svi!2s"></iframe>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div class="gmail">
+        <a href="guimail.html">
+            <img
+                src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAVVJREFUSEvtlT9uwjAUxj8zmG7lBm1vwA3KbCE1vQEdIUPDCRpOEBhSxvYIqYTeTG/QI+QIdMQDrl6URG4UYhIVqQNeYuW99/3eHzsROPMSZ9bHBeDscNmiWKmJAN4A7AwQ+kQrZ7TlkMdH/MoAc5/onfcl4FWpFMCNFZPspXyaJ8muCRR53uBK68gAE8svnRHdVQGmRig1wKNP9FUHiZUa5lUPq/YZUZa8XUEdIIszQFBtmdWSQR28FSAXyFrG+77WPCuvqXVdAKzHc+J16zoAXQEu3dLuBBjgQwAjANcO1W8DbAXwYPudAlhoKZd9rRMA90cgn3spPal1IICX1gCfKOSgWKmwKmCARZP9pAoKAYasx+ORORy4Gohez5tuNtsi47oEWgNYjG8tP6u3+88Ax4b9PwBrpZYGeC6ytIfoOvzVCgSwmhIFv75FLpGu9ssv09m5Hx2Hqxkv3bP8AAAAAElFTkSuQmCC" />
+    </div>
+
+    <div class="facebook">
+        <a href="#">
+            <img
+                src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAWlJREFUSEu1lY1NwzAQhd+bgBGACYAJYASYAJiAdgJgAsoEwASUDTpC2aDdACZ46Co7sh3/BSmWrEiJfd/57vmFmHlw5vhoAiTdAbgEcO6m5bR1c03yq5ZkESDpGsALgJPGKXcAliTXuXVZgKQVgIeJ5VuRXKZ7RoB/BvdxX0kuQkgEcGX5rGS+B7AIyyHpCcBjsOcm/J4CrJ7HBcCvNZmkrRlGBrAjeeoXDACnlrdK9h8kTVGHIenKqcueNsMxnCIEvAO4rQCeSVo5LLgprFbKIZkQYNo+6wSkdU+3bUle2MsQoIYswxO0ACB5iN0E+IUluKSN60W0JAfIKqgD8APgKEngm6RZS3SCbJM7ALnSZptsEqzJdEoP7klawrGbSqpdtF7AnuRgkFOsohdQtgp3iUpO2gOom11gA7mGtwCRlYy8KNW5swM7jTe/EmDksGGs3l+mmdnGK8MZY/SudBGbgIZ9ND/PDvgDFmC1GY5MnWUAAAAASUVORK5CYII=" />
+
+    </div>
+
+
+    <div class="backtotop">
+        <a href="#top">
+            <img
+                src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAJlJREFUSEvtk8ENwCAIRfmbdZO2k1U36WY2JHgoAeFieqjejPge/iBo8sJkPi1BmPDPImqtFSJqAM4wGylIRyTwXe6VrCQlUPDefEoSChx4WjIUGPAq5B4Vb4cvcQUWHMDBROPMlZiCEbxnk5V4Au70EljtnevRVJITAI/xa40iYsnmwdVLbgvONeEUZT+UV7cEYYIrou8jegDLRUEZmUJdzQAAAABJRU5ErkJggg==" />
+        </a>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.0.min.js"></script>
+    <script>
+        $(() => {
+            $('#p img').click(function () {
+                let imgPath = $(this).attr('src');
+                $('#main-img').attr('src', imgPath);
+            })
+        })
+    </script>
+    <script>
+        $(() => {
+            $('#p img').hover(function () {
+                let imgPath = $(this).attr('src');
+                $('#main-img').attr('src', imgPath);
+            })
+        })
+    </script>
+
+    <!-- Optional JavaScript -->
+    <!--lick script sclick-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"
+        integrity="sha512-HGOnQO9+SP1V92SrtZfjqxxtLmVzqZpjFFekvzZVWoiASSQgSr4cw9Kqd2+l8Llp4Gm0G8GIFJ4ddwZilcdb8A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.js"
+        integrity="sha512-eP8DK17a+MOcKHXC5Yrqzd8WI5WKh6F1TIk5QZ/8Lbv+8ssblcz7oGC8ZmQ/ZSAPa7ZmsCU4e/hcovqR8jfJqA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script>
+        $('.filtering').slick({
+            slidesToShow: 5,
+            slidesToScroll: 5
+        });
+
+        var filtered = false;
+
+        $('.js-filter').on('click', function () {
+            if (filtered === false) {
+                $('.filtering').slick('slickFilter', ':even');
+                $(this).text('Unfilter Slides');
+                filtered = true;
+            } else {
+                $('.filtering').slick('slickUnfilter');
+                $(this).text('Filter Slides');
+                filtered = false;
+            }
+        });
+    </script>
+    <script src="/assets/js/shopping-cart-app.js"></script>
+    <script src="/assets/js/account.js"></script>
+    <script src="/assets/js/orders.js"></script>
+
+
+
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+
+
+<!-- linkSwes -->
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.4/dist/sweetalert2.min.js"></script>
+</body>
+
+</html>

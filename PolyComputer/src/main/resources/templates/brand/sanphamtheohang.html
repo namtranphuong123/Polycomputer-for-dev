@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:replace="~{/layout/index ::  dynamic(~{::main})}">
+
+<head>
+    <meta charset="ISO-8859-1">
+    <title>Insert title here</title>
+
+</head>
+
+<body>
+    <main>
+        <div class="all">
+          
+
+            <div class="productcungloai1">
+                <h3 class="heading"> Sản phẩm nổi bật</h3>
+                <div class="list-product">
+                    <div class="product-item"th:each=" bn : ${top3banchaycuahang}">
+                        <div class="product-top">
+                            <a href="" class="product-thumb"th:href="@{|/product/details/${bn[1]}|}">
+                                <img th:src="@{|/assets/images/${bn[2]}|}" alt="">
+                            </a>
+                            <a th:href="@{|/product/details/${bn[1]}|}" class="buy-now">Xem chi tiết</a>
+                        </div>
+
+                    </div>
+                    
+
+
+
+
+
+
+
+
+
+
+                </div>
+            </div>
+
+            <div class="product">
+                <h3 class="heading">Sản phẩm mới nhất</h3>
+                <div class="list-product">
+                    
+                    <div class="product-item" th:each=" bn : ${items4new}">
+                        <div class="product-top">
+                            <img style="width: 50px;" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAbZJREFUSEvVlc1RwzAQhd9K9g0FUgGhAkgFkAqghFABUAGhAkIFoQOgAkIFpANCBQmYG1otoxBn7MSyDDMc0M3War+3P1oR/njRH/tHFPCRpgdexNbn5+Q3YqKATOsxgEMQDY21Fz+FxAFKTUC0v3AsMrHO9drAvCmoFjADOonWLyVnP4TUAjKt7wEcb6gVuTLODZpEEQR8KHUuRNcBJ3PD3PZ7vgmcc50WsxezsSoB71r3CRjVKSSlur6zMqUGILrMv9fPbAC8InHuEcBObQqIesbacSGNY8PciwJWbRlJsGVup2naEeeec9OqKEoRvGt9QsBdrHgCvBJRX0RGBHRW9hXFLwGCXbNJ9PegKoVPhvmoaL4ewZSA3YLBG4DtWET5vgDTFvNeEJBpLcVNAU4J6C9GRcNlmEui11PkQ18p9oVMkmQAkbOG/hEDlG6uN64cF2FatAalLsrVZEkybBQF0Y2x9jxYA79RvAe+Bi3m2xmwkyg1Xk3VQASWea8NTGsBJWciE+Nc1x9Y/P8efpUFz8VEb3JusBx2J8vW8520WMs5VeysB1JqEHrxog9O0+4J2f1/wBfBK7YZBtqSlwAAAABJRU5ErkJggg=="/>
+                            <h3 style="color: red;">MỚI</h3>
+                            <a href="" class="product-thumb"  th:href="@{|/product/details/${bn.productId}|}">
+                                <img  th:src="@{|/assets/images/${bn.anhChinh}|}" alt="">
+                            </a>
+                            <a href="" class="buy-now"  th:href="@{|/product/details/${bn.productId}|}">Xem chi tiết</a>
+                        </div>
+                        <p class="name1">[[${bn.productName}]]</p>
+                        <b>giá : [[${#numbers.formatDecimal(bn.gia,0,'COMMA', 0, 'POINT')}]]₫</b>
+                        <th:block th:if="*{bn.giamGia != NULL}">
+                            <p class="gia" style="text-decoration-line:line-through;"
+                                th:text="' Giảm : ' +*{bn.giamGia} + ' đ'"></p>
+                        </th:block>
+                        <th:block th:if="*{bn.giamGia == NULL}">
+                            <p class="gia1" style="text-decoration-line:line-through;"></p>
+
+                        </th:block>
+                    </div>
+                   
+
+
+
+
+
+
+
+
+
+                </div>
+            </div>
+
+            <div class="producttheohang">
+                <h3 class="heading">Dành cho bạn</h3>
+                <div class="list-product row">
+
+                    <div class="product-item " th:each=" bn : ${items1}">
+                        <div class="product-top">
+                            <a href="" class="product-thumb" th:href="@{|/product/details/${bn.productId}|}">
+                                <img th:src="@{|/assets/images/${bn.anhChinh}|}"  alt="">
+                            </a>
+                        </div>
+                        <p class="name">[[${bn.productName}]]</p>
+
+                        <b>giá : [[${#numbers.formatDecimal(bn.gia,0,'COMMA', 0, 'POINT')}]]₫ </b>
+
+                        <th:block th:if="*{bn.giamGia != NULL}">
+                            <p class="gia" style="text-decoration-line:line-through;"
+                                th:text="' Giảm : ' +*{bn.giamGia} + ' đ'"></p>
+                        </th:block>
+                        <th:block th:if="*{bn.giamGia == NULL}">
+                            <p class="gia" style="text-decoration-line:line-through;"></p>
+
+                        </th:block>
+                    </div>
+
+
+
+
+
+
+
+
+
+                </div>
+            </div>
+        </div>
+
+    </main>
+</body>
+
+</html>

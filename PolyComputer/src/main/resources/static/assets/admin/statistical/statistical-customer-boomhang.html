@@ -1,0 +1,86 @@
+<!-- <div class="card shadow mb-4">
+    <div class="card-header py-3">
+        <h6 class="m-0 font-weight-bold text-primary">Top10 người dùng boom hàng</h6>
+    </div>
+    <div class="card-body">
+        <table class="table table-bordered">
+            <thead>
+              <tr>
+                <th scope="col">Họ Và Tên</th>
+                <th scope="col">Username</th>
+              </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="item in items">
+                    <td>{{item.orderId}}</td>
+                    <td>{{item.fullName}}</td>
+                </tr>
+            </tbody> 
+          </table>
+         
+    </div>
+</div> -->
+<div class="card shadow mb-4">
+  <div class="card-header py-3">
+      <h6 class="m-0 font-weight-bold text-primary">Danh Sách Đơn Hàng</h6>
+  </div>
+  <div class="card-body">
+      <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th scope="col">Mã Đơn Hàng</th>
+              <th scope="col">Địa Chỉ Giao Hàng</th>
+              <th scope="col">Tổng Tiền</th>
+              <th scope="col">Họ Và Tên</th>
+              <th scope="col">SĐT</th>
+              <!-- <th scope="col">Email</th>
+              <th scope="col">Mua Bởi</th> -->
+              <th scope="col">Ghi Chú</th>
+              <th scope="col">Trạng Thái</th>
+              <th scope="col">Hành Động</th>
+            </tr>
+          </thead>
+          <tbody>
+              <tr ng-repeat="item in pager.items">
+                  <th scope="row">{{item.orderId}}</th>
+                  <th scope="row">{{item.address}}</th>
+                  <th scope="row">{{item.tongTienThanhToan +' VNĐ'}}</th>
+                  <th scope="row">{{item.fullName}}</th>
+                  <th scope="row">{{item.phoneNumber}}</th>
+                  <!-- <th scope="row">{{item.email}}</th>
+                  <th scope="row">{{item.username}}</th> -->
+                  <th scope="row">{{item.description}}</th>
+                  <th scope="row">{{item.status.statusName}}</th>
+                  <td>
+                      <div class="btn-group btn-group-xs">
+                          <button ng-click="edit(item)" class="btn btn-warning"><i class="fas fa-camera fa-xs"></i></button>
+                          <button ng-click="delete(item)" class="btn btn-danger"><i class="fas fa-trash fa-xs"
+                                  aria-hidden="true"></i></button>
+                      </div>
+                  </td>
+              </tr>
+          </tbody> 
+        </table>
+        <div class="row">
+            <div class="col-sm-6">
+              Hiển thị đơn hàng thứ <span>{{(pager.page+1)*5-4}}</span> đến {{(pager.page+1)*5}} trong danh sách Đơn Hàng
+            </div>
+            <div class="col-sm-6">
+              <button ng-click="pager.first()" class="btn btn-primary">
+                  <i class="fas fa-step-backward"></i>
+              </button>
+              <button ng-click="pager.prev()" class="btn btn-primary">
+                  <i class="fas fa-backward"></i>
+              </button>
+              <button class="btn btn-success">{{pager.page + 1}}/{{pager.count}} trang</button>
+              <button ng-click="pager.next()" class="btn btn-primary">
+                  <i class="fas fa-forward"></i>
+              </button>
+              <button ng-click="pager.last()" class="btn btn-primary">
+                  <i class="fas fa-step-forward"></i>
+              </button>
+            </div>
+        </div>
+       
+  </div>
+</div>

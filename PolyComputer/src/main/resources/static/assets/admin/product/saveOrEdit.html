@@ -1,0 +1,258 @@
+<div class="card shadow mb-4">
+    <div class="card-header py-3">
+        <!-- <h6 class="m-0 font-weight-bold text-primary">Danh sÃ¡ch danh má»¥c</h6> -->
+        <h6 class="m-0 font-weight-bold text-primary">{{titleForm}}</h6>
+    </div>
+    <div class="card-body">
+        <div class="row">
+            <div class="col-sm-6"  style="text-align: center;">
+                <label for="productImage">
+                    <img ng-src="{{'/assets/images/' + form.anhChinh}}"  style="height: 150px;width: auto;">
+                </label>
+                <input type="file" class="form-group" id="productImage"
+                onchange="angular.element(this).scope().imageChanged(this.files)">
+            </div>
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label>Tên sản phẩm:</label>
+                    <input type="text" class="form-control" value="ASUS ABC" ng-model="form.productName">
+                </div>
+                <div class="form-group">
+                    <div>Thương Hiệu:</div>
+                    <select ng-model="form.brand.brandId" class="form-control">
+                        <option value="" disabled>-Chọn Thương Hiệu-</option>
+                        <option ng-repeat= "b in brands" ng-value="b.brandId">{{b.brandName}}</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <!-- <div class="form-group col-sm-6">
+                <div>Danh Mục Sản Phẩm:</div>
+                <select class="form-control">
+                    <option value="" disabled selected>Laptop Gaming</option>
+                    <option value="">Laptop Sinh Viên</option>
+                    <option value="">Giá giảm dần</option>
+                    <option value="">Trên xuống</option>
+                    <option value="">Dưới lên</option>
+                </select>
+            </div> -->
+            <div class="form-group col-sm-6">
+                <div>Danh Mục:</div>
+                <select ng-model="form.category.categoryId" class="form-control">
+                    <option value="" disabled>-Chọn danh mục-</option>
+                    <option ng-repeat= "c in cates" ng-value="c.categoryId">{{c.categoryName}}</option>
+                </select>
+            </div>
+            <div class="form-group col-sm-6">
+                <div>Pin:</div>
+                <select ng-model="form.pin.pinId" class="form-control">
+                    <option value="" disabled>-Chọn Pin-</option>
+                    <option ng-repeat= "p in pins" ng-value="p.pinId">{{p.pinName}}</option>
+                </select>
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group col-sm-6">
+                <div>RAM:</div>
+                <select ng-model="form.ram.ramId" class="form-control">
+                    <option value="" disabled>-Chọn RAM-</option>
+                    <option ng-repeat= "r in rams" ng-value="r.ramId">{{r.ramName}}</option>
+                </select>
+            </div>
+            <div class="form-group col-sm-6">
+                <div>Lưu Trữ:</div>
+                <select ng-model="form.luuTru.luuTruId" class="form-control">
+                    <option value="" disabled>-Chọn Lưu Trữ-</option>
+                    <option ng-repeat= "l in luutrus" ng-value="l.luuTruId">{{l.luuTruName}}</option>
+                </select>
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group col-sm-6">
+                <div>CPU:</div>
+                <select ng-model="form.cpu.cpuId" class="form-control">
+                    <option value="" disabled>-Chọn CPU-</option>
+                    <option ng-repeat= "c in cpus" ng-value="c.cpuId">{{c.cpuName}}</option>
+                </select>
+            </div>
+            <div class="form-group col-sm-6">
+                <div>Thế Hệ CPU:</div>
+                <select ng-model="form.cpuSerie.cpuSerieId" class="form-control">
+                    <option value="" disabled>-Chọn Thế Hệ CPU-</option>
+                    <option ng-repeat= "c in cpuseries" ng-value="c.cpuSerieId">{{c.cpuSerieName}}</option>
+                </select>
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group col-sm-6">
+                <div>Chip Đồ Họa:</div>
+                <select ng-model="form.chipDoHoa.chipDoHoaId" class="form-control">
+                    <option value="" disabled>-Chọn Chip Đồ Họa-</option>
+                    <option ng-repeat= "c in chipdohoas" ng-value="c.chipDoHoaId">{{c.chipDoHoaName}}</option>
+                </select>
+            </div>
+            <div class="form-group col-sm-6">
+                <div>Màu:</div>
+                <select ng-model="form.color.colorId" class="form-control">
+                    <option value="" disabled>-Chọn Màu-</option>
+                    <option ng-repeat= "c in colors" ng-value="c.colorId">{{c.colorName}}</option>
+                </select>
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group col-sm-6">
+                <div>Hệ Điều Hành:</div>
+                <select ng-model="form.heDieuHanh.heDieuHanhId" class="form-control">
+                    <option value="" disabled>-Chọn Hệ Điều Hành-</option>
+                    <option ng-repeat= "h in hedieuhanhs" ng-value="h.heDieuHanhId">{{h.heDieuHanhName}}</option>
+                </select>
+            </div>
+            <div class="form-group col-sm-6">
+                <div>Cổng Xuất Hình:</div>
+                <select ng-model="form.congXuatHinh.congXuatHinhId" class="form-control">
+                    <option value="" disabled>-Chọn Cổng Xuất Hình-</option>
+                    <option ng-repeat= "c in congxuathinhs" ng-value="c.congXuatHinhId">{{c.congXuatHinhName}}</option>
+                </select>
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group col-sm-6">
+                <div>Số Cổng Lưu Trữ Tối Đa:</div>
+                <select ng-model="form.soCongLuuTruToiDa.soCongLuuTruToiDaId" class="form-control">
+                    <option value="" disabled>-Chọn Số Cổng Lưu Trữ Tối Đa-</option>
+                    <option ng-repeat= "s in socongluutrutoidas" ng-value="s.soCongLuuTruToiDaId">{{s.soCongLuuTruToiDaName}}</option>
+                </select>
+            </div>
+            <div class="form-group col-sm-6">
+                <div>Bảo Hành:</div>
+                <select class="form-control" ng-model="form.baoHanh">
+                    <option value="" disabled>-Chọn Bảo Hành-</option>
+                    <option ng-value="6" >6 tháng</option>
+                    <option ng-value="12" >12 tháng</option>
+                    <option ng-value="24" >24 tháng</option>
+                    <option ng-value="36" >36 tháng</option>
+                </select>
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group col-sm-6">
+                <div>Giá:</div>
+                <input ng-model="form.gia" class="form-control">
+                <i th:errors="*{gia}"></i>
+            </div>
+            <div class="form-group col-sm-6">
+                <div>Số Lượng:</div>
+                <input ng-model="form.soLuong" class="form-control">
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group col-sm-6">
+                <div>Khối Lượng:</div>
+                <input ng-model="form.khoiLuong" class="form-control" type="number">
+                <i th:errors="*{khoiLuong}"></i>
+            </div>
+            <div class="form-group col-sm-6">
+                <div>Kích Thước:</div>
+                <input ng-model="form.kichThuoc" class="form-control">
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group col-sm-6">
+                <div>Màn Hình:</div>
+                <select ng-model="form.manHinh.manHinhId" class="form-control">
+                    <option value="" disabled>-Chọn Màn Hình-</option>
+                    <option ng-repeat= "m in manhinhs" ng-value="m.manHinhId">{{m.manHinhName}}</option>
+                </select>
+            </div>
+            <div class="form-group col-sm-6">
+                <div>Cổng Kết Nối:</div>
+                <select ng-model="form.congKetNoi.congKetNoiId" class="form-control">
+                    <option value="" disabled>-Chọn Cổng Kết Nối-</option>
+                    <option ng-repeat= "c in congketnois" ng-value="c.congKetNoiId">{{c.congKetNoiName}}</option>
+                </select>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-6 form-group">
+                <div>Giảm Giá:</div>
+                <input ng-model="form.giamGia" class="form-control" value="1">
+            </div>
+            <div class="form-group col-sm-6">
+                <div>Bàn phím:</div>
+                <select ng-model="form.banPhim.banPhimId" class="form-control">
+                    <option value="" disabled>-Chọn Bàn Phím-</option>
+                    <option ng-repeat= "ban in banphims" ng-value="ban.banPhimId">{{ban.banPhimName}}</option>
+                </select>
+            </div>
+
+
+        </div>
+        <div class="row">
+            <div class="col form-group">
+                <div>Mô Tả:</div>
+                <textarea ng-model="form.description" id="mota" style="width:100%; height: 140px;" class="form-control"></textarea>
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group col-sm-3">
+                <div>Ảnh 1:</div>
+                <label for="anhPhu1">
+                    <img ng-src="{{'/assets/images/' + form.anhPhu1}}"  style="height: 150px;width: auto;">
+                </label>
+                <input type="file" class="form-group" id="anhPhu1"
+                onchange="angular.element(this).scope().imageChanged1(this.files)">
+            </div>
+            <div class="form-group col-sm-3">
+                <div>Ảnh 2:</div>
+                <label for="anhPhu2">
+                    <img ng-src="{{'/assets/images/' + form.anhPhu2}}"  style="height: 150px;width: auto;">
+                </label>
+                <input type="file" class="form-group" id="anhPhu2"
+                onchange="angular.element(this).scope().imageChanged2(this.files)">
+            </div>
+            <div class="form-group col-sm-3">
+                <div>Ảnh 3:</div>
+                <label for="anhPhu3">
+                    <img ng-src="{{'/assets/images/' + form.anhPhu3}}"  style="height: 150px;width: auto;">
+                </label>
+                <input type="file" class="form-group" id="anhPhu3"
+                onchange="angular.element(this).scope().imageChanged3(this.files)">
+            </div>
+            <div class="form-group col-sm-3">
+                <div>Ảnh 4:</div>
+                <label for="anhPhu4">
+                    <img ng-src="{{'/assets/images/' + form.anhPhu4}}"  style="height: 150px;width: auto;">
+                </label>
+                <input type="file" class="form-group" id="anhPhu4"
+                onchange="angular.element(this).scope().imageChanged4(this.files)">
+            </div>
+        </div>
+        <!-- <div class="row">
+            <div class="col-sm-12">
+                <form method="POST" enctype="multipart/form-data" action="/">
+			<table>
+				<tr><td>File to upload:</td><td><input type="file" name="file" /></td></tr>
+				<tr><td></td><td><input type="submit" value="Upload" /></td></tr>
+			</table>
+		</form>
+            </div>
+        </div> -->
+        
+    </div>    
+</div>
+    <div class="card-footer">
+        <button ng-click="create()" class="btn btn-primary" ng-show="fillStatus">
+            Lưu
+        </button>
+        <button ng-click="update()" class="btn btn-success" ng-show="!fillStatus">
+            Cập Nhật
+        </button>
+        <button ng-click="delete(form)" class="btn btn-danger">
+            Xóa
+        </button>
+        <button ng-click="reset()" class="btn btn-info">
+            Reset
+        </button>
+    </div>
+</div>

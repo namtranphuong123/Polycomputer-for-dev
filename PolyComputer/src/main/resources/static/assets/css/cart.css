@@ -1,0 +1,219 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700&display=swap');
+
+header{
+    position: fixed;
+    top: 0px;
+    right: 0px;
+    left: 0px;
+    height: 110px;z-index: 999;
+}
+
+
+
+
+
+.tieude{
+    margin-top: 180px;
+    height: 10px;
+    margin-bottom: 30px;
+
+}
+.tieude .a h3{
+    margin-left: 150px;
+    color: #24A19C;
+
+}
+.tieude .b a{
+    margin-right: 80px;
+    color: #24A19C;
+    float: right;
+
+}
+.giohang .header .header-logo{
+    display: inline-block;
+}
+.giohang .header .header-logo img{
+float: left ;
+margin-left: 120px;
+margin-top: 0px;
+}
+.giohang .header .header-logo h2{
+float:right;   
+ margin-top: 30px;
+ font-size: 20px;
+ margin-right: 80px;
+
+}
+.giohang .header .header-sum h3{
+    float:right;   
+     margin-top: 30px;
+     font-size: 20px;
+     margin-right: 50px;
+     color: blue;
+    
+    }
+ 
+    .giohang .hanghoa .table table {
+
+        margin-left: 110px;
+        margin-top: 20PX;
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+   width: 100%;
+       
+    }
+    .giohang .hanghoa .table table tr td   {
+        font-weight: bold;
+        text-align: center;
+        padding: 10px;
+        font-size: 20px;
+      }
+      .giohang .hanghoa .table table tr td img {
+    width: 100px;
+
+      }
+      .quangcaodetai img{ 
+      margin-top: 30px;
+        width: 350px;
+        height: 175px;
+        margin-left: 190px;
+        border-radius: 25px;
+      }
+      .quangcaodetai:hover img{ 
+      
+        /*làm to ảnh*/
+    transform: scale(1.1);
+    /*làm chậm hiệu ứng chuyển đôngj*/
+    transition:  all 0.5s ease-in-out;
+/*làm mờ khi hover*/
+filter:opacity(80%) 
+      }
+.panel{
+    margin-top: 20px;
+    margin-left: 160px;
+width: 70%;
+height: 250px;
+    background-color: rgb(240, 238, 238);
+    border-radius: 20px;
+}      
+.panel .panel-body h2{
+   text-align: center;
+}      
+.panel .panel-body p{
+    margin-top: 30px;
+    margin-left: 20px;
+
+    float: left;
+ }  
+ .panel .panel-body b{
+     color: red;
+    margin-top: 30px;
+    margin-right: 20px;
+
+    float: right;
+ }
+ .panel .panel-body .muahang p{
+margin-top: 10px;
+margin-left: 70px;
+
+ }
+
+ .panel .panel-body .muahang{
+    
+text-align: center;
+    color: white;
+width: 70%;
+height: 50px;
+border-radius: 15px;
+    
+background-color: rgb(20, 53, 195);
+font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+    margin-left: 15%;
+    margin-right: 15%;
+    margin-top: 10%;
+}  
+
+.tacgia{
+    background: white;
+    color: black;
+    text-align: center;
+    padding: 10px;
+}
+.tacgia p{
+padding-top: 10px;
+}
+.backtotop{
+    width: 50px;
+    height: 50px;
+    background-color: #f53809;
+    text-align: center;
+    position: fixed;
+    border-radius: 25px ;
+z-index: 999;
+bottom: 0px;
+right: 0px;
+margin-bottom: 80px;
+margin-right: 50px;
+
+}
+.backtotop a img{
+    margin-top: 10px;
+
+}
+
+.facebook{
+    width: 50px;
+    height: 50px;
+    background-color: #0c5bee;
+    text-align: center;
+    position: fixed;
+    border-radius: 25px ;
+z-index: 999;
+bottom: 0px;
+right: 0px;
+margin-bottom: 170px;
+margin-right: 50px;
+}
+.facebook a img{
+    margin-top: 10px;
+}
+
+.location{
+    width: 50px;
+    height: 50px;
+    background-color: #f8f53d;
+    text-align: center;
+    position: fixed;
+    border-radius: 25px ;
+z-index: 999;
+bottom: 0px;
+right: 0px;
+margin-bottom: 250px;
+margin-right: 50px;
+}
+.location a img{
+    margin-top: 10px;
+}
+
+.gmail{
+    width: 50px;
+    height: 50px;
+    background-color: #cac9c9;
+    text-align: center;
+    position: fixed;
+    border-radius: 25px ;
+z-index: 999;
+bottom: 0px;
+right: 0px;
+margin-bottom: 320px;
+margin-right: 50px;
+}
+.gmail a img{
+    margin-top: 10px;
+}
+.phantrang{
+    margin-top: 30px;
+    margin-left: 43%;
+}

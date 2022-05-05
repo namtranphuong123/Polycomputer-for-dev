@@ -1,0 +1,264 @@
+
+header{
+    position: fixed;
+    top: 0px;
+    right: 0px;
+    left: 0px;
+    height: 110px;z-index: 999;
+}
+
+
+
+
+.loigioithieu .heading{
+    font-size: 28px;
+    color:#24A19C ;
+    text-align:  center;
+    margin: 40px 0;
+}
+.loigioithieu .heading::after{
+    content: "";
+    position: absolute;
+    width: 100px;
+    height: 5px;
+    background-color:#24A19C;
+    left: 47%;
+    margin-top: 50px;
+
+}
+.loigioithieu {
+
+    margin-top: 150px;
+
+    
+}
+.loigioithieu p{
+    margin-top: 120px;
+    font-size: 20px;
+    width: 80%;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+/* danhmuc */
+.gioithieu .heading{
+    font-size: 28px;
+    color:#24A19C ;
+    text-align:  center;
+    margin: 40px 0;
+}
+.gioithieu .heading::after{
+    content: "";
+    position: absolute;
+    width: 100px;
+    height: 5px;
+    background-color:#24A19C;
+    left: 47%;
+    margin-top: 50px;
+
+
+}
+.thongtin{
+    height: 500px;
+    margin-top: 5%;
+    background-color: rgb(255, 255, 255);
+    
+}
+.thongtin .heading{
+    font-size: 28px;
+    color:#24A19C ;
+    text-align:  center;
+    margin: 40px 0 ;
+    
+}
+.thongtin .heading::after{
+    content: "";
+    position: absolute;
+    width: 100px;
+    height: 5px;
+    background-color:#24A19C;
+    left: 47%;
+    margin-top: 50px;
+
+}
+.thongtin .img-thanhvien{
+    margin-top: 50px;
+   width: 100%;
+   height: 600px;
+    margin-left: 120px;
+}
+
+.thongtin  img {
+    margin-left: 20%;
+    width: 90%;
+    border-radius: 25px;
+    height: 400px;
+}
+
+/* danhmuc */
+.danhmuc .heading{
+    font-size: 28px;
+    color:#24A19C ;
+    text-align:  center;
+    margin: 40px 0;
+}
+.danhmuc .heading::after{
+    content: "";
+    position: absolute;
+    width: 100px;
+    height: 5px;
+    background-color:#24A19C;
+    left: 47%;
+    margin-top: 50px;
+
+}
+
+
+
+ul{
+    list-style: none;
+}
+a{
+    text-decoration: none;
+}
+#warpper{
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+}
+ul.list-person{
+    display: flex;
+}
+ul.list-person li{
+
+    margin-right: 20px;
+    max-width: 324px;
+    /* chống chàn ra ngoài */
+    overflow: hidden;
+
+}
+
+
+ul.list-person li a img{
+width: 500px;
+height: 300px;
+border-radius: 25px;
+display: block;
+    max-width: 100%;
+    transition:  all 0.3s ease-in-out;
+}
+ul.list-person li a {
+    position: relative;
+    display: block;
+}
+/* hover li*/
+ul.list-person li:hover img{
+    transform : scale(1.1);
+    opacity: 0.8;
+    
+}
+ul.list-person li a .name{
+    width: 200px;
+    position: absolute;
+    color: #333;
+    font-weight: bold;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-size: 30x;
+    bottom: 0px;
+    left: 50%;
+    transform: translateX(-50%);
+    transition: all 0.3s ease-in-out;
+    opacity: 0;
+}
+ul.list-person li a:hover .name{
+    bottom: 40%;
+    opacity: 1;
+
+}
+/* het danh muc */
+.tacgia{
+    background: white;
+    color: black;
+    text-align: center;
+    padding: 10px;
+}
+.tacgia p{
+padding-top: 10px;
+}
+.backtotop{
+    width: 50px;
+    height: 50px;
+    background-color: #f53809;
+    text-align: center;
+    position: fixed;
+    border-radius: 25px ;
+z-index: 999;
+bottom: 0px;
+right: 0px;
+margin-bottom: 80px;
+display: inline-block;
+
+margin-right: 50px;
+}
+.backtotop a img{
+    margin-top: 10px;
+
+}
+
+
+
+.facebook{
+    width: 50px;
+    height: 50px;
+    background-color: #0c5bee;
+    text-align: center;
+    position: fixed;
+    border-radius: 25px ;
+z-index: 999;
+bottom: 0px;
+right: 0px;
+margin-bottom: 170px;
+margin-right: 50px;
+}
+.facebook a img{
+    margin-top: 10px;
+}
+
+.location{
+    width: 50px;
+    height: 50px;
+    background-color: #f8f53d;
+    text-align: center;
+    position: fixed;
+    border-radius: 25px ;
+z-index: 999;
+bottom: 0px;
+right: 0px;
+margin-bottom: 250px;
+margin-right: 50px;
+}
+.location a img{
+    margin-top: 10px;
+}
+
+.gmail{
+    width: 50px;
+    height: 50px;
+    background-color: #cac9c9;
+    text-align: center;
+    position: fixed;
+    border-radius: 25px ;
+z-index: 999;
+bottom: 0px;
+right: 0px;
+margin-bottom: 320px;
+margin-right: 50px;
+}
+.gmail a img{
+    margin-top: 10px;
+}
+.phantrang{
+    margin-top: 30px;
+    margin-left: 43%;
+}

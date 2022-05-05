@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:replace="~{/layout/index ::  dynamic(~{::main})}">
+
+<head>
+    <meta charset="ISO-8859-1">
+    <title>Insert title here</title>
+
+</head>
+
+<body>
+    <main>
+
+        <div class="banner">
+            <img src="https://lh3.googleusercontent.com/1gkEx2QSKd5Gx7NING2O2Gy8wH6JUiSnNRywf5yaN4Grl7uOCLUiKibls9u53BoMRUbapuj6WB96kzSBorugYp9vqNK6040l=rw-w1920"
+                alt="">
+        </div>
+        <div class="product">
+            <h3 class="heading">Sản phẩm đang khuyến mãi </h3>
+            <a class="headingX" href="">Xem tất cả >>></a> 
+            <div class="list-product">
+                <div class="product-item"th:each=" bn : ${top5k}">
+                    <div class="product-top">
+                        
+                        <h3 style="color: red;">Giảm giá</h3>
+                        <a href="" class="product-thumb" th:href="@{|/product/details/${bn.productId}|}">
+                            <img style="width: 371.56px;" th:src="@{|/assets/images/${bn.anhChinh}|}" alt="">
+                        </a>
+                        <a  class="buy-now"th:href="@{|/product/details/${bn.productId}|}">Mua ngay</a>
+                    </div>
+
+                    
+                    <p class="name">[[${bn.productName}]]</p>
+
+                        <b >giá : [[${#numbers.formatDecimal(bn.gia,0,'COMMA', 0, 'POINT')}]]₫ 
+                           
+                        </b>
+
+                        <th:block th:if="*{bn.giamGia != NULL}">
+                            <p class="gia" style="text-decoration-line:line-through;" th:text="' Giảm :  ' +*{#numbers.formatDecimal(bn.giamGia,0,'COMMA', 0, 'POINT')} + ' đ'"></p>
+                        </th:block>
+                        <th:block th:if="*{bn.giamGia == NULL}">
+                            <p class="gia" style="text-decoration-line:line-through;" ></p>
+
+                        </th:block>
+                    
+                    
+                   
+                </div>
+            </div>
+        </div>
+        <div class="product">
+            <h3 class="heading">Sản phẩm mới nhất </h3>
+            <div class="list-product">
+                <div class="product-item"th:each=" bn : ${top10moinhat}">
+                    <div class="product-top">
+                        <img style="width: 50px;" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAbZJREFUSEvVlc1RwzAQhd9K9g0FUgGhAkgFkAqghFABUAGhAkIFoQOgAkIFpANCBQmYG1otoxBn7MSyDDMc0M3War+3P1oR/njRH/tHFPCRpgdexNbn5+Q3YqKATOsxgEMQDY21Fz+FxAFKTUC0v3AsMrHO9drAvCmoFjADOonWLyVnP4TUAjKt7wEcb6gVuTLODZpEEQR8KHUuRNcBJ3PD3PZ7vgmcc50WsxezsSoB71r3CRjVKSSlur6zMqUGILrMv9fPbAC8InHuEcBObQqIesbacSGNY8PciwJWbRlJsGVup2naEeeec9OqKEoRvGt9QsBdrHgCvBJRX0RGBHRW9hXFLwGCXbNJ9PegKoVPhvmoaL4ewZSA3YLBG4DtWET5vgDTFvNeEJBpLcVNAU4J6C9GRcNlmEui11PkQ18p9oVMkmQAkbOG/hEDlG6uN64cF2FatAalLsrVZEkybBQF0Y2x9jxYA79RvAe+Bi3m2xmwkyg1Xk3VQASWea8NTGsBJWciE+Nc1x9Y/P8efpUFz8VEb3JusBx2J8vW8520WMs5VeysB1JqEHrxog9O0+4J2f1/wBfBK7YZBtqSlwAAAABJRU5ErkJggg=="/>
+                        <h3 style="color: red;">MỚI</h3>
+                        <a href="" class="product-thumb" th:href="@{|/product/details/${bn.productId}|}">
+                            <img style="width: 371.56px;" th:src="@{|/assets/images/${bn.anhChinh}|}" alt="">
+                        </a>
+                        <a  class="buy-now"th:href="@{|/product/details/${bn.productId}|}">Mua ngay</a>
+                    </div>
+
+                    
+                    <p class="name">[[${bn.productName}]]</p>
+
+                        <b >giá : [[${#numbers.formatDecimal(bn.gia,0,'COMMA', 0, 'POINT')}]]₫ 
+                           
+                        </b>
+
+                        <th:block th:if="*{bn.giamGia != NULL}">
+                            <p class="gia" style="text-decoration-line:line-through;" th:text="' Giảm :  ' +*{#numbers.formatDecimal(bn.giamGia,0,'COMMA', 0, 'POINT')} + ' đ'"></p>
+                        </th:block>
+                        <th:block th:if="*{bn.giamGia == NULL}">
+                            <p class="gia" style="text-decoration-line:line-through;" ></p>
+
+                        </th:block>
+                    
+                    
+                   
+                </div>
+            </div>
+        </div>
+        <div class="product">
+            <h3 class="heading">Sản phẩm bán chạy </h3>
+            <div class="list-product">
+                <div class="product-item" th:each=" bn : ${top10banchay}">
+                    <div class="product-top">
+                        <a href="" class="product-thumb" th:href="@{|/product/details/${bn[1]}|}">
+                            <img  th:src="@{|/assets/images/${bn[2]}|}" alt="">
+                        </a>
+                        <a  class="buy-now"th:href="@{|/product/details/${bn[1]}|}">Mua ngay</a>
+                    </div>
+
+                    
+                    <p style="    
+                    white-space: nowrap; 
+                  max-width: 80%; 
+                  overflow: hidden;
+                  text-overflow: ellipsis;
+                  margin-left: 10%;">[[${bn[0]}]]</p>
+
+                    
+                    <b class="gia"> [[${#numbers.formatDecimal(bn[3],0,'COMMA', 0, 'POINT')}]]₫
+                       </b>
+
+                       <th:block th:if="${bn[4] > 0}"  >
+                        <p class="gia" style="text-decoration-line:line-through;" th:text="' Giảm :  ' +*{#numbers.formatDecimal(bn[4],0,'COMMA', 0, 'POINT')} + ' đ'"></p>
+                    </th:block>
+                    <th:block th:if="${bn[4] < 0}">
+                        <p class="gia" style="text-decoration-line:line-through;" ></p>
+
+                    </th:block>
+                   
+                </div>
+            </div>
+        </div>
+
+       
+        <div class="danhmuc">
+            <h3 class="heading"> Các nhãn hàng nổi tiếng</h3>
+            <div class="list-danhmuc">
+                <div class="danhmuc-item" th:each=" b : ${brand}" th:href="@{|/product/brand?cid=${b.brandName}|}">
+                    <a href="" th:href="@{|/product/brand?cid=${b.brandId}|}">
+                        <img th:src="@{|/assets/images/${b.brandImage}|}"  alt="">
+
+                    </a>
+                    <p>[[${b.brandName}]]</p>
+
+                </div>
+
+                
+
+
+
+
+            </div>
+        </div>
+
+    </main>
+</body>
+
+</html>

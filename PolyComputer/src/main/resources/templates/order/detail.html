@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:replace="~{/layout/index ::  dynamic(~{::main})}">
+
+<head>
+    <meta charset="ISO-8859-1">
+    <title>Insert title here</title>
+
+</head>
+
+<body>
+    <main th:object="${order}">
+        <div class="tieude row">
+
+            <div class=" a col-5">
+                <h3>Đơn hàng của bạn > <a style="color: #640310;" href="/"> Trang chủ</a></h3>
+            </div>
+
+        </div>
+        <hr>
+        <div class="row">
+            <div class="col-4" style="margin-left: 70px;">
+                <div class="thanhtoan1 row">
+                    <div class="thanhtoan1-item col-12">
+                        <div class="heading">Thông tin người nhận</div>
+                        <!-- th:action="@{/order/saveOrUpdate}" method="post" -->
+                        <form class="row"   >
+                            <div class="col-12">
+                                <div class="form-group">
+                                    <label for="ten">Tên người nhận:</label>
+                                    <th:block th:if="*{statusId.statusId == 1}">
+                                        <input type="text" class="form-control"id="fullName" aria-describedby="productIdhelpId"
+                                        th:field="*{fullName}" >
+            
+                                    </th:block>
+                                    <th:block th:if="*{statusId.statusId != 1}">
+                                        <input type="text" class="form-control" id="fullName" aria-describedby="productIdhelpId"
+                                        th:field="*{fullName}" readonly>
+            
+                                    </th:block>
+                                    
+
+
+                                </div>
+                            </div>
+
+                            <div class="col-12">
+                                <div class="form-group">
+                                    <label for="ten">Mã đơn hàng:</label>
+                                    <input type="text" class="form-control" aria-describedby="productIdhelpId"
+                                        th:field="*{orderId}" id="orderId" name="orderId"  readonly>
+
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-group">
+                                    <label for="name">Số điện thoại:</label>
+                                    <th:block th:if="*{statusId.statusId == 1}">
+                                        <input type="text" class="form-control" id="phoneNumber" aria-describedby="productIdhelpId"
+                                        th:field="*{phoneNumber}" >
+            
+                                    </th:block>
+                                    <th:block th:if="*{statusId.statusId != 1}">
+                                        <input type="text" class="form-control" id="phoneNumber" aria-describedby="productIdhelpId"
+                                        th:field="*{phoneNumber}" readonly>
+            
+                                    </th:block>
+                                    
+
+
+                                </div>
+                            </div>
+
+                            <div class="col-12">
+                                <div class="form-group">
+                                    <label for="ten">địa chỉ:</label>
+                                    <th:block th:if="*{statusId.statusId == 1}">
+                                        <textarea th:field="*{address}" id="address"  class="form-control" rows="2"
+                                        required="required" ></textarea>
+
+            
+                                    </th:block>
+                                    <th:block th:if="*{statusId.statusId != 1}">
+                                        <textarea th:field="*{address}" id="address" class="form-control" rows="2"
+                                        required="required" readonly></textarea>
+
+            
+                                    </th:block>
+                                  
+
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-group">
+                                    <label for="ten" style=" font-size: 20px; ">Lời nhắn với người vận chuyển:</label>
+                                    <th:block th:if="*{statusId.statusId == 1}">
+                                        <textarea th:field="*{description}"  id="description" class="form-control" rows="3"
+                                        required="required" ></textarea>
+
+            
+                                    </th:block>
+                                    <th:block th:if="*{statusId.statusId != 1}">
+                                        <textarea th:field="*{description}" id="description" class="form-control" rows="3"
+                                        required="required" readonly></textarea>
+
+            
+                                    </th:block>
+                                   
+
+
+                                </div>
+                            </div>
+
+                            <div class="col-6">
+                               
+                                <div class="form-group">
+                                    <label for="name" style="font-weight: bold; font-size: 20px; ">Tổng tiền:</label>
+                                    <h2 style="color: red;" id="tongTienThanhToan"
+                                        th:text="*{#numbers.formatDecimal(tongTienThanhToan,0,'COMMA', 0, 'POINT')} + ' đ'">
+                                    </h2>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                               
+                                <div class="form-group">
+                                    <label for="name" style="font-weight: bold; font-size: 20px; "></label>
+                                   
+                                    
+                                    <th:block th:if="*{statusId.statusId == 2}">
+                                        <a  class="btn"
+                                        style="background-color: #99ee4a;color: #fff;margin-top: 40px;"><i class="fas fa-save"></i>
+                                        <span>Đã xác nhận</span>
+                                    </a>
+                                </th:block>
+                                <th:block th:if="*{statusId.statusId == 3}">
+                                    <a  class="btn"
+                                    style="background-color: #cbce0f;color: #fff;margin-top: 40px;"><i class="fas fa-save"></i>
+                                    <span>Đang giao hàng</span>
+                                </a>
+                            </th:block>
+                            <th:block th:if="*{statusId.statusId == 4}">
+                                    <a  class="btn"
+                                    style="background-color: #ee7a8a;color: #fff;margin-top: 40px;"><i class="fas fa-save"></i>
+                                    <span>Đã nhận hàng</span>
+                                </a>
+                            </th:block>
+                            <th:block th:if="*{statusId.statusId == 5}">
+                                    <a  class="btn"
+                                    style="background-color: #2dd7f5;color: #fff;margin-top: 40px;"><i class="fas fa-save"></i>
+                                    <span>Đã hủy</span>
+                                </a>
+                            </th:block>
+                                    <th:block  th:if="*{statusId.statusId == 1}">
+                                        <!-- th:href="@{|/order/*{orderId}|}" onclick="showConfirmModalDialoghuy()" -->
+                                         <button  class="btn" data-toggle="modal" data-target="#modelIdhuy"
+                                        style="background-color: #640310;color: #fff;margin-top: 40px;"><i class="fas fa-save"></i>
+                                        <span  >Hủy Đơn Hàng</span>
+                                    </button>
+                                    <div class="modal fade" id="modelIdhuy" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+                                        <div class="modal-dialog" role="document">
+                                            <div class="modal-content" style="margin-top: 79%;">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title">Poly's Computer</h5>
+                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                            <span aria-hidden="true">&times;</span>
+                                                        </button>
+                                                </div>
+                                                <div class="modal-body">
+                                                  <p>
+                                                      Bạn có muốn hủy đơn hàng <b th:text="${orderId}"></b>  không !
+                                                  </p>
+                                                </div>
+                                                <div class="modal-footer">
+                                                  <a type="submit" class="btn btn-primary" th:href="@{|/order/*{orderId}|}" style="font-size: 16px;"><span class="glyphicon glyphicon-floppy-save"></span> Có</a>
+                                                  <button type="button" class="btn btn-danger" data-dismiss="modal" aria-label="Close"style="font-size: 16px;"><span class="glyphicon glyphicon-stop"></span> Không</button>
+                                             
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                    <button  class="btn"
+                                        style="background-color: #5e0cf5;color: #fff;margin-top: 40px;"><i class="fas fa-save"></i>
+                                        <span  >Lưu</span>
+                                    </button>
+            
+                                    </th:block>
+                                    
+                                    <script>
+                                        function showConfirmModalDialoghuy() {
+                                            let contextPath    = /*[[@{|/order/*{orderId}|}]]*/
+                                           
+                                            $('#yesOption').attr('href',
+                                                '/order/*{orderId}' );
+                                            $('#confirmationIdhuy').modal('show');
+                                        }
+                                    </script>
+                                </div>
+                            </div>
+
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-7">
+                <div class="giohang">
+
+                    <div class="hanghoa row">
+                        <div class="table col-10" style="margin-left: 20px;">
+                            <div class="heading">Chi tiết đơn hàng</div>
+                            <table>
+                                <tr>
+                                    <td style="width: 11%; font-size: 14px;">ID sản phẩm </td>
+                                    <td style="width: 11%;font-size: 14px;">hình ảnh </td>
+                                    <td style="width: 40%; font-size: 14px;">tên sản phẩm </td>
+                                    <td style=" font-size: 18px;">Giá
+                                    </td>
+                                    <td style="height: 30px;font-size: 14px;">Số lượng</td>
+                                    <td style=" font-size: 14px;">Tổng</td>
+
+
+
+                                </tr>
+                                <tr th:each=" detail: *{orderDetails}" th:object="${detail}">
+                                    <td style="width: 11%; font-size: 14px;"> [[*{productId.productId}]]</td>
+                                    <td style="width: 11%;">
+                                        <img   th:src="@{'/assets/images/'+*{productId.anhChinh}}"alt="">
+                                    </td>
+                                    <td style="width: 40%; font-size: 14px;"> [[*{productId.productName}]]</td>
+                                    <td style=" width: 20%;font-size: 14px;">[[*{#numbers.formatDecimal(gia,0,'COMMA',2,'POINT')}]]
+                                        đ
+                                        <th:block th:if="*{productId.giamGia != NULL}">
+                                            <p style="text-decoration-line:line-through;"> giảm :
+                                                [[*{#numbers.formatDecimal(productId.giamGia,0,'COMMA',2,'POINT')}]] đ
+                                            </p>
+                                        </th:block>
+                                        <th:block th:if="*{productId.giamGia == NULL}">
+                                        </th:block>
+                                    </td>
+                                    <td style="height: 30px;"> [[*{soLuong}]]</td>
+                                    <td style=" font-size: 16px;">
+                                        [[*{#numbers.formatDecimal(tongTienSanPham,0,'COMMA',2,'POINT')}]]đ
+
+
+                                    </td>
+
+
+
+                                </tr>
+
+
+
+                            </table>
+                        </div>
+
+                    </div>
+                </div>
+
+
+
+
+
+
+            </div>
+        </div>
+
+        <hr>
+
+
+    </main>
+</body>
+
+</html>

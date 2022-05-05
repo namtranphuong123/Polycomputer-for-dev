@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:replace="~{/layout/index ::  dynamic(~{::main})}">
+
+<head>
+    <meta charset="ISO-8859-1">
+    <title>Insert title here</title>
+
+</head>
+
+<body ng-app="account-app" ng-controller="account-ctrl">
+    <main>
+        <div class="tieude row">
+
+            <div class=" a col-5">
+                <h3>Quản lý đơn hàng > <a style="color: #640310;" href="/"> Trang chủ</a></h3>
+            </div>
+
+        </div>
+        <hr>
+
+        <div class="row" style="margin-top: 50px;">
+            <div class="col-2" style="margin-left: 5%;margin-top: 10px; height: 400px;">
+                <div class="row">
+                    <h2 style="margin-left: 20%; font-weight: 700 !important;">[[${#request.remoteUser}]]</h2>
+                </div>
+                <div class="row" style="margin-top: 20px;margin-left: 20%;">
+                    <img
+                        src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAVRJREFUSEu1lY0xBEEQRt9FwkWACISACBABIkAEXASIAJE4ESAS6l3tqLm+2dm/2q7autqbnn49PV/3LpjZFjPHpw/gAjgGDpvHnNbN8wa815KsAU6BB2C/45TfwA0gbMfaAI/A1cDyuUfQlpUAY4KnoCvgOidEgGV5HZh5dD/LyxUB1nNvIsAYyxQjB6iWp4nB0/b/U+SAZ+A8ALw078S6qqjc7ps1E4trL4D/b/WB2j5oEYFS/QprlsFyaL9hzVhHERCdXDdzs1GydyGI70k1t20tkJeoBJhyJZvYOaBUorGAzzRWui7ZOgqumTPqIzgUL7nUZM4XJVczfU6CQ1Gm+pQa7RJQwiUr9c5PPiD7jgqzFJJGs6e1Z/yNVh0VOs867FI2YyA7kzTKNB7V4wvqGn7W3IYc9MHJYYJ8lGMaJepc+Rq0GDgF6PNNHttsm32zA/4AsaZAGSvkecYAAAAASUVORK5CYII=" />
+                    <a href="" th:href="@{/account/details}"
+                        style="margin-left: 10px; color: rgb(24, 0, 245);font-weight: 700 !important;">Thông tin
+                        tài khoản</a>
+                </div>
+                <div class="row" style="margin-top: 20px;margin-left: 20%;">
+                    <img
+                        src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAFtJREFUSEtjZKAxYKSx+QyjFhAM4QEJov9QZ8Esh/EJuhZNH5iLzQc0t4BYlxKlbkDigCiXEatoQOJgNJJRomdAUhHN44DmFhCbxIlSNyBxQJTLiFU06gOCIQUAArwMGUsaCXEAAAAASUVORK5CYII=" />
+                    <a href="" th:href="@{/order/list}" style="margin-left: 10px;">Quản lý đơn hàng</a>
+                </div>
+                <hr style="margin-left: 20%; width: 50%;">
+
+            </div>
+            <div class="col-9">
+
+
+                <div class="giohang">
+
+                    <div class="hanghoa row">
+                        <div class="table col-10" style="height: 500px;">
+                            <table >
+   
+                                <tr >
+                                 
+                                    <td >Họ tên</td>
+                                   
+                                    <td >
+                                       Tổng tiền thanh toán
+                                    </td>
+                                    <td>Ngày đặt hàng</td>
+                                    <td>Chú thích</td>
+                                    <td>
+                                        Trạng thái
+                                    </td>
+
+                                    <td> 
+                                        Hành động
+                                    </td>
+
+
+
+                                </tr>
+
+
+
+                                <tr th:each="bn:${orderPage}" style="height: 30px;">
+                                   
+                                    <td >[[${bn.fullName}]]</td>
+                                   
+                                    <td >
+                                        [[${#numbers.formatDecimal(bn.tongTienThanhToan,0,'COMMA', 0, 'POINT')}]]₫
+                                    </td>
+                                    <td>[[${bn.updatedAt}]]</td>
+                                    <td style="width: 30%;">[[${bn.description}]]</td>
+                                    <td>
+                                        <th:block th:if="*{bn.statusId.statusId== 5}">
+                                            <span style="color: red;">
+
+                                                Đã hủy</span>
+
+                                        </th:block>
+                                        <th:block th:if="*{bn.statusId.statusId== 2}">
+
+                                            <span style="color: rgb(81, 248, 3);">Đã xác nhận</span>
+
+                                        </th:block>
+                                        <th:block th:if="*{bn.statusId.statusId== 3}">
+
+                                            <span style="color: rgb(248, 122, 38);">Đang giao hàng</span>
+
+                                        </th:block>
+                                        <th:block th:if="*{bn.statusId.statusId== 4}">
+
+                                            <span style="color: blue;">Đã nhận hàng</span>
+
+                                        </th:block>
+                                        <th:block th:if="*{bn.statusId.statusId == 1}">
+                                            <!-- th:href="@{|/order/*{orderId}|}" onclick="showConfirmModalDialoghuy()" -->
+
+                                            <span style="color: seagreen;">Chờ xác nhận</span>
+
+                                            
+
+                                        </th:block>
+                                    </td>
+
+                                    <td> <a th:href="@{|/order/detail/${bn.orderId}}" class="btn "
+                                            style="background-color: #640310;color: #fff;"><i class="fas fa-save"></i>
+                                            <span>xem chi tiết</span>
+                                        </a>
+                                    </td>
+
+
+
+                                </tr>
+
+
+
+                            </table>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+
+
+
+
+
+
+
+
+                <nav style="margin-top: 30px;" aria-label="...">
+
+                    
+                    <ul class="pagination">
+                        <li class="btn "  style="margin-left: 50px;background-color: #640310 ;">
+
+
+                            <a class="btn " style=" background-color: #640310 ;"
+                                th:href="@{/order/list/page(name=${name},size=${orderPage.size},page=${1})}">
+                                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACQAAAAkCAYAAADhAJiYAAAAAXNSR0IArs4c6QAAANFJREFUWEft1WEKgkAUxPE3N6uTpCepbmI36WYTCwoRxjx0lgye32QX/e3fVREHO3AwTxRIPZEqVIVUATX+v3uI5C0irvMK7wDauTxIDgAmOXGekC60BUSyQS4RMQEYM6huoDfM4hgzpbqAVjAPAMNPCu3BNLC10F6MFeTA2EAujAXkxPQCpb85a2+dZVOvVNqMsoDaSl0oG8iFsoIcKDtoL6oL6AvqDOCp/mfdQB+o1J/e8h1SKyZ5ypRZrpMupG7sGi+QKlmFqpAqoMZrD6lCL3PtsiUcdb+dAAAAAElFTkSuQmCC"/>
+                            </a>
+                        </li>
+
+                        <th:block th:if="${orderPage.number>0}">
+                            <li class="btn " style="margin-left: 50px; background-color: #640310 ;">
+                                <a  class="btn "  style=" background-color: #640310 ;"
+                                    th:href="@{/order/list/page(name=${name}, size =${orderPage.size}, page=${orderPage.number})}"
+                                    >
+                                   
+                                   <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAK1JREFUSEvtlNENwjAMBe9NABvQDWAERoARmAQ2oBvQDWDDhyIFqRUlaVHyUzXfls8+xxaVnyrnZwVkDS9ckW0HB5K+OrW9BR6SzilPSUW/ALaPITnQjMH7wNkA2zfg+klSDGC7AZ7AYVDhiL7ZHQAX4A4E74NXpIMIaIFNFUCoMip6Afviivoaqg25X3X8ph2wKzKDxKJ1kk5/L1r2kk0IWPixm2AgG7Iqyip6A2DZShkOpDJlAAAAAElFTkSuQmCC"/>
+                                </a>
+                            </li>
+                        </th:block>
+
+                        <li class="btn btn-success" style="margin-left: 50px ;">
+                            <p>
+                                <span th:utext="${orderPage.number + 1}"></span>/<span
+                                    th:utext="${orderPage.totalPages}"></span>
+                            </p>
+                        </li>
+
+
+                        <th:block th:if="${orderPage.number<orderPage.totalPages-1}">
+                            <li class="btn " style="margin-left: 50px; background-color: #640310 ;">
+                                <a class="btn "style=" background-color: #640310 ;"
+                                    th:href="@{/order/list/page(name=${name}, size =${orderPage.size}, page=${orderPage.number+2})}"
+                                    >
+                                  
+                                    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAJdJREFUSEvtlMENgzAQBGc6DB2EDlICdJIO0kLSQUqADpIKDlkKUsQD8+A+CP9sn3akOfskeZmczwmoGj64ooi4Azf1s3QREVHO1FULq5e/kAFo1Pc/ZE/AnNup/bzJAJTsJ9CqQxagQEo/WuCxVw+W/f0C1yzAq4RnKerVLqPJI3DJeqa5H606yTYUHHzYbTBQLTkVVRVNSYpYGVoxDG4AAAAASUVORK5CYII="/>
+                                </a>
+                            </li>
+                        </th:block>
+
+                        <li class="btn " style="margin-left: 50px; background-color: #640310 ;">
+                            <a class="btn "style=" background-color: #640310 ;"
+                                th:href="@{/order/list/page(name=${name},size=${orderPage.size},page=${orderPage.totalPages})}">
+                                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACQAAAAkCAYAAADhAJiYAAAAAXNSR0IArs4c6QAAAN9JREFUWEft1lEOwiAQBNCZm3kT9STqSawn0ZutISkGjXGWNLvBBP4aaPs6bAFisMbBPJggNSMzoZmQSkD1/3cNmdmB5KK+svSb2RnAaR17IVmuZXMnZGYFsgewkDyqJ4eCSjIArg1CokJB6xTUhKrrJyoc1ItKAfWg0kBeVCrIg0oHKdQooBvJskTEL4yfC2GzUNauFyYdpDCpIA8mDeTFpIB6MOEgM9sBuDeF/VbA33b+8N++2fElJjyhmkBJiuRDnYXSQB7I1jHuE+PWF3nvnyCV1ExoJqQSUP3D1dAT44+yJTFDkMAAAAAASUVORK5CYII="/>                            </a>
+                        </li>
+                    </ul>
+                </nav>
+
+
+
+                <hr>
+            </div>
+
+
+
+
+
+
+
+
+        </div>
+
+
+
+
+    </main>
+</body>
+
+</html>

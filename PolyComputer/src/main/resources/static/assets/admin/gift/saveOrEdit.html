@@ -1,0 +1,42 @@
+<div class="card shadow mb-4">
+    <div class="card-header py-3">
+        <h6 class="m-0 font-weight-bold text-primary">{{titleForm}}</h6>
+    </div>
+    <div class="card-body">
+        <div class="row">
+            <div class="col-sm-6"  style="text-align: center;">
+                <label for="categoryImage">
+                    <img ng-src="{{'/assets/images/' + form.giftImage}}"  style="width: auto;height: 200px;">
+                </label>
+                <input type="file" class="form-group" id="giftImage"
+                onchange="angular.element(this).scope().imageChanged(this.files)">
+            </div>
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label>Tên Quà Tặng:</label>
+                    <input type="text" class="form-control" placeholder="" ng-model="form.giftName">
+                </div>
+                <div class="form-group">
+                    <label for="mota">Mô Tả:</label>
+                    <textarea ng-model="form.description" id="mota" style="width:100%; height: 140px;" class="form-control"></textarea>
+                </div>
+            </div>
+        </div>
+
+        
+    </div>
+    <div class="card-footer">
+        <button ng-click="create()" class="btn btn-primary" ng-show="fillStatus">
+            Lưu
+        </button>
+        <button ng-click="update()" class="btn btn-success" ng-show="!fillStatus">
+            Cập Nhật
+        </button>
+        <button ng-click="delete(form)" class="btn btn-danger">
+            Xóa
+        </button>
+        <button ng-click="reset()" class="btn btn-info">
+            Reset
+        </button>
+    </div>
+</div>

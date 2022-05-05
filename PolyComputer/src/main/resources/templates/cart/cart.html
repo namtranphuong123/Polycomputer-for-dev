@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:replace="~{/layout/index ::  dynamic(~{::main})}">
+
+<head>
+    <meta charset="ISO-8859-1">
+    <title>Insert title here</title>
+
+</head>
+
+<body>
+    <main>
+
+        <div class="tieude row">
+
+            <div class=" a col-3">
+                <h3>Giỏ hàng > <a style="color: #640310;" href="/" > Trang chủ</a></h3>
+            </div>
+            <div class=" b col-sm-5">
+                
+                <button  ng-click=" cart.clear()">Xóa tất cả</button>
+            </div>
+        </div>
+        <hr>
+
+        <div class="giohang">
+            <div class="header row">
+                <div class="header-logo col-3">
+                    <img src="/images/logos/logo2.png" alt="" width="80px">
+                    <h2 class="ten">Poly's Computer</h2>
+                </div>
+                <div class="header-sum col-sm-5">
+                    <h3>{{cart.amount | currency:"":0}} ₫</h3>
+                </div>
+            </div>
+            <div class="hanghoa row">
+                <div class="table col-8">
+                    <table>
+
+                        <tr ng-repeat="item in cart.items" style="height: 30px;">
+                            <td class="thumbnail">
+                                <img  th:src="@{/assets/images/{{item.anhChinh}}}" alt="">
+                            </td>
+                            <td style="width: 30%; font-size: 14px;">{{item.productName}}</td>
+                            <td>{{item.gia | currency:"":0}} ₫<p style="text-decoration: line-through;">{{item.giamGia |
+                                    currency:"":0}} ₫</p>
+                            </td>
+                            <td><input ng-change="cart.saveToLocalStorage()" ng-model="item.qty" type="number" min="1"
+                                    style="width: 150px"></td>
+                            <td>{{item.qty* (item.gia - item.giamGia) | currency:"":0 }} ₫ <p
+                                    style="text-decoration: line-through;">{{item.qty*item.giamGia | currency:"":0}} ₫
+                                </p>
+                            </td>
+
+                            <td> <a ng-click="cart.remove(item.productId)" ><img style="width: 30px;"
+                                        src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAPpJREFUSEvlle0VwTAYhZ9uwARsgAmwARswAZswAhOwARtgAmxgA87tSXoi2tOmlV/Nr+b0zf14k9wkRB5JZHyKCBbAChhWFHAFtsDer/cJOsApANjHE9EUeNkfPoEKBsATWAOaP0pc9I0gOeiZNaM8AgFuDLhak6mo2Ca5lyCRLIGd1rkOrPo5cKwI6pfNgIPrwiV4m+puDfWWSO26m0mKnUfQ9OhaoS0isJaL9t1vaXCLohOEnthgB+0iiH7RbFTcbCL/8yYr7C6AXOSG3dfuB+ysABXximt9Z+qLsigA+6dU4JOiB+cMjGuiC1gO0jfAHU2Ts1RPdIIPdFc7Gd4QT4EAAAAASUVORK5CYII=" /></a>
+                            </td>
+
+
+                        </tr>
+
+
+
+                    </table>
+                </div>
+                <div class="thanhtoan-col-4">
+
+                    <div class="panel panel-default " style="height: 450px;">
+
+                        <div class="panel-body ">
+                            <h3 style="text-align: center; padding-top: 10%; ">Thanh toán</h3>
+
+                            <div class="row">
+                                <p style="margin-left: 15%;">Tổng</p>
+                                <b style="margin-left: 30%;color: black;font-size: 16;">{{cart.tong | currency:"":0}} ₫ </b>
+                            </div>
+                            <div class="row">
+                                <p style="margin-left: 15%;">Giảm giá</p>
+                                <b style="margin-left: 30%;color: rgb(104, 101, 101);text-decoration: line-through;">{{cart.giamgia | currency:"":0}} ₫ </b>
+                            </div>
+                            <div class="row">
+                                
+                                <b style="margin-left: 15%;font-size: 24px;"> Tổng :  {{cart.amount | currency:"":0}} ₫ </b>
+                            </div>
+                            <a th:href="@{/order/thanhtoan}" type="button" class="muahang">
+                                <p>Tiếp tục thanh toán</p>
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                    <div class="quangcaodetai">
+                        <a href="">
+                            <img src="https://lh3.googleusercontent.com/RSQtratbdvzk1A4p8AHcXkqfRUGNHsO4fECdBEAPmtJ5u3e-OPE1-QysvD9gI1dzi8BajwJXPXHtdATTo3kEdubPHjPWDGed7g=w500-rw"
+                                alt="">
+                        </a>
+                    </div>
+
+
+
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+        <hr>
+  
+    </main>
+</body>
+
+</html>

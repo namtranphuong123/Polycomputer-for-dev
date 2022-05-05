@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:replace="~{/layout/index ::  dynamic(~{::main})}">
+
+<head>
+    <meta charset="ISO-8859-1">
+    <title>Insert title here</title>
+
+</head>
+
+<body>
+    <main>
+      
+    <div class="thanhtoan row">
+        <div class="thanhtoan-item col-6">
+          <div class="heading">Thông tin người nhận</div>
+          <form class="row">
+              <div class="col-12">
+               <div class="form-group">
+                   <label for="username">Tài khoản:</label>
+                   <div  class="form-control" id="username" name="username"
+                     >[[${#request.remoteUser}]]</div>
+   
+               </div>
+              </div>
+              <div class="col-12">
+                <div class="form-group">
+                    <label for="ten">Tên người nhận:</label>
+                    <input type="text" class="form-control" aria-describedby="productIdhelpId"
+                        placeholder="Tên của bạn"  ng-model="order.fullName" name="fullName" id="fullName">
+    
+                </div>
+            </div>
+           <div class="col-6">
+               <div class="form-group">
+                   <label for="ten">Số điện thoại:</label>
+                   <input type="text" class="form-control" aria-describedby="productIdhelpId"
+                       placeholder="số điện thoại"  ng-model="order.phoneNumber" name="phoneNumber" id="phoneNumber">
+   
+               </div>
+           </div>
+           <div class="col-6">
+               <div class="form-group">
+                   <label for="name">Ngày thanh toán:</label>
+                   <div type="text" class="form-control" aria-describedby="productIdhelpId"
+                        >{{order.createdAt | date:'dd-MM-yyyy'}}</div>
+   
+               </div>
+           </div>
+           <div class="col-12">
+               <div class="form-group">
+                   <label for="ten" style="font-weight: bold; font-size: 20px; " >địa chỉ:</label>
+                   
+                   <textarea ng-model="order.address" class="form-control" rows="2" required="required" name="address" id="address"></textarea>
+                   
+   
+               </div>
+              </div>
+              <div class="col-12">
+               <div class="form-group">
+                   <label for="ten" style=" font-size: 20px; " >Lời nhắn với người vận chuyển:</label>
+                   
+                   <textarea ng-model="order.description" id="description" class="form-control" rows="3" required="required" name="description"></textarea>
+                   
+   
+               </div>
+              </div>
+          
+   
+              <button type="button"  ng-click="order.purchase()" class="muahang">
+                <p>Tiếp tục thanh toán</p> </button>
+       </form>
+       
+        </div>
+     </div>
+    </main>
+    
+</body>
+</html>

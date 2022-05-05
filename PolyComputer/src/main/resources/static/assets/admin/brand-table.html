@@ -1,0 +1,107 @@
+
+
+                    <!-- Page Heading -->
+                    <h1 class="h3 mb-2 text-gray-800">Trang Chủ <i class="fas fa-arrow-right fa-xs"></i> Thương Hiệu</h1>
+                    <!-- <p class="mb-4">DataTables is a third party plugin that is used to generate the demo table below.
+                        For more information about DataTables, please visit the <a target="_blank"
+                            href="https://datatables.net">official DataTables documentation</a>.</p> -->
+
+                    <!-- DataTales Example -->
+                    <div class="card shadow mb-4">
+                        <div class="card-header py-3">
+                            <h6 class="m-0 font-weight-bold text-primary">Danh sách Thương Hiệu</h6>
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-sm-2 form-group">
+                                    <label for="selectOpt">Hiển thị: </label>
+                                    <select id="selectOpt" style="height: 38px;border-radius: 20%; border: 0.2px solid lightgray;color: #858796;">
+                                        <option value="">5</option>
+                                        <option value="">10</option>
+                                        <option value="">15</option>
+                                        <option value="">20</option>
+                                        <option value="">25</option>
+                                    </select>
+                                    mục
+                                </div>
+                                <div class="col-sm-2 form-group">
+                                    <select class="form-control">
+                                        <option value="">Lọc</option>
+                                        <!-- <option value="">Giá tăng dần</option>
+                                        <option value="">Giá giảm dần</option> -->
+                                        <option value="">Trên xuống</option>
+                                        <option value="">Dưới lên</option>
+                                    </select>
+                                </div>
+                                <div class="col-sm-6 form-group">
+                                    <div class="form-inline float-right">
+                                        <input class="form-control mr-sm-2" type="search" placeholder="ASUS..." aria-label="Search">
+                                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Tìm kiếm</button>
+                                    </div>
+                                </div>
+                                <div class="col-sm-2 form-group">
+                                    <a href="#!add-brand">
+                                        <button class="btn btn-primary float-right">Thêm Thương Hiệu</button>
+                                    </a>
+                                </div>
+                            </div>
+                            <table class="table table-bordered">
+                                <thead>
+                                  <tr>
+                                    <th scope="col" style="width:15%">Mã Thương Hiệu</th>
+                                    <th scope="col" style="width:15%">Hình</th>
+                                    <th scope="col" style="width:50%">Tên Thương Hiệu</th>
+                                    <th scope="col" style="width:20%">Hành động</th>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <th scope="row">1</th>
+                                        <td>
+                                            <img src="./img/ASUS.webp" alt="" width="100%">
+                                        </td>
+                                        <td>ASUS</td>
+                                        <td>
+                                            <div class="btn-group btn-group-xs">
+                                                <a href="#!edit-brand">
+                                                    <button ng-click="edit(item)" class="btn btn-warning"><i class="fas fa-camera fa-xs"></i></button>
+                                                </a>
+                                                <button ng-click="delete(item)" class="btn btn-danger"><i class="fas fa-trash fa-xs"
+                                                        aria-hidden="true"></i></button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">2</th>
+                                        <td>
+                                            <img src="./img/ASUS.webp" alt="" width="100%">
+                                        </td>
+                                        <td>ASUS</td>
+                                        <td>
+                                            <div class="btn-group btn-group-xs">
+                                                <button ng-click="edit(item)" class="btn btn-warning"><i class="fas fa-camera fa-xs"></i></button>
+                                                <button ng-click="delete(item)" class="btn btn-danger"><i class="fas fa-trash fa-xs"
+                                                        aria-hidden="true"></i></button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody> 
+                              </table>
+                              <div class="row">
+                                  <div class="col-sm-6">
+                                    Hiển thị mục thứ 5 đến 10 trong 100 mục
+                                  </div>
+                                  <div class="col-sm-6">
+                                    <nav aria-label="Page navigation example">
+                                        <ul class="pagination float-right">
+                                          <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+                                          <li class="page-item"><a class="page-link" href="#">1</a></li>
+                                          <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                          <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                          <li class="page-item"><a class="page-link" href="#">Next</a></li>
+                                        </ul>
+                                      </nav>
+                                  </div>
+                              </div>
+                        </div>
+                    </div>

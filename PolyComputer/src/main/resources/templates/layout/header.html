@@ -1,0 +1,64 @@
+<div class="thongbao">
+    <p> Do tình hình dịch bệnh nên quá tình giao hàng sẽ chậm hơn từ 3 đến 5 ngày <img
+            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAS5JREFUSEvFleFRAkEMRh8daAVCB1qBdqBWAlQgVqBWoB0oHUgF2IHQgR3IfHp7s+5lSY7hxvzJDJfsy5dslhED22jg86kBzoHXBn4LfFQKceM8Bd9BhdVz/g0g6W9N9TdOi/bGeQqCHaqH1QBXwB0gH7F34B6Q/2MW4AT4BOT72BcwAeRbswCPwBRYAup/xDSHa+AJmHmADXAGXOwZbgnVpVgDypWKqoIUuAXGkdKzGLOwskWpPR2pAZiZmwPU7+cDhluyNeQ58KIPOSBJDBTrhghyWgLSuyO65Oo2PLhH/QZYOT/F5woSIP2mIWsfImblVAGLZivltc0Rs3I6gGPOoL3meYvSDkQq9mLaJS33IP+D6fvSmrnlIXoNL4FVj5c0qTFz+1bptabzfXDADg4vPBnUCEqqAAAAAElFTkSuQmCC" />
+    </p>
+</div>
+
+<div class="menu-logo">
+
+    <div class="logo">
+        <a href="/">
+            <img src="/images/logos/logo2.png" alt="">
+        </a>
+
+    </div>
+    <div class="search">
+        <form th:action="@{/product/all/search}">
+            <input class="form-control " type="text" name="name" id="name" placeholder="Tìm kiếm" aria-label="Search">
+            <button class="btn btn-outline-secondary" type="submit"><img
+                    src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAUJJREFUSEu9le0xBEEURc9GQAhEgAzIgAjIABmQARmQgQwQARnYEIiAOlWv1avR3TO7NWOq9sdOd9/z+r6PWbHws1pYnx5gD7gEjoHDCOQdeAHugfWU4FqAuxDvabjnegxSAxjlQRx8BBTynY83uQLO042OepAhoET+FdYU4aGGIK3aCbuEVp8M0POP2GVULfEiJOQt/uy3cpIBJXoT2IxoEOZD2NU8kwHF+ynRD2/h2WouMuA7Tm3aG91zcwEsit1aluey6DWq7g/jX5O8bZlqjyVbHR2tRvsETjq9oOBz+H4L3ExptLInjwrr3BrPo8IBeJEEXTMYg+rmIC+ODTttcc9pzK0mZGxc29GOa4efogr5U1zPLU1nkutVyKZNVXOhC5kDIDRDzoCnEslcgALRzl9xX84JGP0e9D5MW68tfoMfCXxMGRHr0pcAAAAASUVORK5CYII=" /></button>
+        </form>
+
+    </div>
+  
+    <nav>
+
+        <a href="#">
+
+            <img
+                src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAXVJREFUSEvVle81A1EQxe+tABVIKiAVkAooQSpABahAVEAHqEBUIB2IDqKC69x4z9l9u2/fi3N8MJ+yyWR+8+fOLPHHxj+OjyJA0qGTILn8TTI1gAWAIwBzkpfbQmoAzvwgBPbnKcl1LWgQIGkE4D0JthWkBHgCcNKT7Q3J65oqsgBJFwBuM0HWJPf8WxDBiKST6VgvQNIZgPtChhMrS5IruQKweU7/0wGEjF4A7BYAHvZCUmzjguS0BhBlWWqxW2QRvDUcO1W0KpB0CuCxFBnAB4DYRkOidYafAnKqSZneg74WvpI8bjqngBWA/YbDJ4Cdioqiy4rkeAigJNgstMKnospItpJOK3DpzYw9SMvwvCr691EcBLRmYOfMucjxijNoqShmI2leWcUdSV+AH+tbtOYezEg+SLJi/H28qrkKxiQtlEFAM9iS5MTeAeIW5ga+Saa4ydEhHDu3zNLzUm0s3Ck/R9CzhZB74xVfOLXqyfn9f8AXeJmLGSx9OfMAAAAASUVORK5CYII=" />
+            Khuyến mãi</a>
+        <a th:href="@{/product/allproduct}">Tất cả sản phẩm</a>
+        <a th:href="@{/order/list}">Đơn hàng </a>
+        <th:block th:if="${#request.remoteUser}">
+            <!-- dung if neu ma dang nhap roi thi hien thi   -->
+
+
+
+            <a onclick="showConfirmModalDialog()">Đăng xuất</a>
+            <a th:href="@{/account/details}">[[${#request.remoteUser}]]</a>
+
+        </th:block>
+        <th:block th:unless="${#request.remoteUser}">
+            <!-- nguoc lai neu chua co hien thi dang nhap -->
+            <a th:href="@{/security/login/form}">Đăng nhập</a>
+        </th:block>
+
+        <a th:href="@{/cart/view}">
+            <img
+                src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAPlJREFUSEvNlNsVwUAQhr9UQAlUgA6ogA7wygM6oAJeeEUF6IAKUAEqQAWccZKcuCQ7SaxjXufy7b//zjpYDsfyfH4KuLlqLsAM6H1DXVCBB/DmVoB1WsinK+oCQ2AF1GwAssDZHZwHjmkgYSaLB/UUg3dASfrDAEVgmwJwAnJRAMnJKQoJIQOgbwI0gGlCgO+dadFkJzIxIRug7PWYACOgExPQdBf10WYCiFGHGICra64oVwGkaAlUlZA5IN75YVIghbLNCyXg7XvRALRPdg/I/jyFFqAU8F6mBYyBFjAB2i9jonLGV+TNCn7lr4eKyqkB1hVY9+B/AXdYBygZk/eVswAAAABJRU5ErkJggg==" />
+            {{cart.count}}
+        </a>
+
+
+
+    </nav>
+</div>
+<script>
+    function showConfirmModalDialog() {
+
+        $('#yesOption').attr('href',
+            '/security/logoff');
+        $('#confirmationId').modal('show');
+    }
+</script>
